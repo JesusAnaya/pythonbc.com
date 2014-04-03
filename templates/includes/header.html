@@ -1,0 +1,27 @@
+{% load staticfiles %}
+
+<!-- Start Site Header -->
+<header class="site-header">
+  <div class="topbar">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-8">
+          <h1 class="logo"> <a href="index.html"><img src="{% static 'images/logo.png' %}" alt="Logo"></a> </h1>
+        </div>
+        <div class="col-md-8 col-sm-6 col-xs-4">
+          <div class="social-icons pull-right hidden-sm hidden-xs"> <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a> <a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a> <a href="http://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a> <a href="https://plus.google.com/" target="_blank"><i class="fa fa-google-plus"></i></a> <a href="http://www.pinterest.com/" target="_blank"><i class="fa fa-youtube"></i></a> <a href="#"><i class="fa fa-rss"></i></a> </div>
+          <a href="#" class="visible-sm visible-xs menu-toggle"><i class="fa fa-bars"></i></a> </div>
+      </div>
+    </div>
+  </div>
+  <div class="main-menu-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          {% include 'includes/navbar.html' %}
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- End Site Header -->

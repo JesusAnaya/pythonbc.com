@@ -1,0 +1,42 @@
+{% load staticfiles %}
+
+<!DOCTYPE HTML>
+<html class="no-js">
+<head>
+<!-- Basic Page Needs
+  ================================================== -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Native Church</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<!-- Mobile Specific Metas
+  ================================================== -->
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<!-- CSS
+  ================================================== -->
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'plugins/mediaelement/mediaelementplayer.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'plugins/prettyphoto/css/prettyPhoto.css' %}" rel="stylesheet" type="text/css">
+<!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="css/ie8.css" media="screen" /><![endif]-->
+<!-- Color Style -->
+<link href="{% static 'colors/color1.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/custom.css' %}" rel="stylesheet" type="text/css">
+<!-- SCRIPTS
+  ================================================== -->
+<script src="{% static 'js/modernizr.js' %}"></script><!-- Modernizr -->
+</head>
+<body>
+<!--[if lt IE 7]>
+    <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+<![endif]-->
+<div class="body">
+  {% include 'includes/header.html' %}
+  {% block content %}{% endblock %}
+  {% include 'includes/footer.html' %}
+  {% include 'includes/footer_scripts.html' %}
+</div>
+</body>
+</html>

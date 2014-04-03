@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from django.conf.urls import patterns, include, url
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
+from django.conf import settings
 
 from mezzanine.core.views import direct_to_template
 
@@ -88,6 +89,12 @@ urlpatterns += patterns('',
     # ("^%s/" % settings.SITE_PREFIX, include("mezzanine.urls"))
 
 )
+
+if settings.DEBUG:
+    urlpatterns += patterns(
+        '',
+        url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+    )
 
 # Adds ``STATIC_URL`` to the context of error pages, so that error
 # pages can use JS, CSS and images.

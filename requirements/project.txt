@@ -1,4 +1,4 @@
 Django==1.6.2
 Mezzanine==3.0.9
 south
-#mysql-python
+mysql-python

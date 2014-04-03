@@ -1,0 +1,7 @@
+-r project.txt
+
+django-extensions
+werkzeug
+factory_boy
+fabric
+selenium
