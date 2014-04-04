@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block main %}
+<!-- Start Nav Backed Header -->
+<div class="nav-backed-header parallax">
+{% include 'pages/menus/breadcrumb.html' %}
+</div>
+<!-- End Nav Backed Header -->
+
+{% block header_page %}
+<!-- Start Page Header -->
+<div class="page-header">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>{% block page_title %}{{ page.title }}{% endblock %}</h1>
+    </div>
+  </div>
+</div>
+</div>
+<!-- End Page Header -->
+{% endblock %}
+
+<!-- Start Content -->
+<div class="main" role="main">
+<div id="content" class="content full">
+    {% block content %}{% endblock %}
+</div>
+</div>
+{% endblock %}
