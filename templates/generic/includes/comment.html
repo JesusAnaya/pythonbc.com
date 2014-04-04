@@ -1,0 +1,21 @@
+{% load mezzanine_tags comment_tags %}
+
+<a name="comment"></a>
+<section class="post-comments" id="comments">
+  <h3><i class="fa fa-comment"></i>Comments</h3>
+  <ol class="comments">
+    {% for comment in comments_for_thread %}
+    <li>
+      <div class="post-comment-block">
+        <div class="img-thumbnail">
+            <img src="{% gravatar_url comment.email 40 %}" alt="avatar">
+        </div>
+        {# <a href="#" class="btn btn-primary btn-xs pull-right">Reply</a> #}
+        <h5>{{ comment.user_name }} says</h5>
+        <span class="meta-data"><time>{{ comment.submit_date }}</time></span>
+        <p>{{ comment.comment|comment_filter }}</p>
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+</section>

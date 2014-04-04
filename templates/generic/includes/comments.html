@@ -1,0 +1,49 @@
+{% load i18n mezzanine_tags comment_tags %}
+
+{% comment_thread object_for_comments %}
+
+<section class="post-comment-form">
+  <h3><i class="fa fa-share"></i> Post a comment</h3>
+  <form method="post" id="comment" action="{{ comment_url }}#comment" data-abide>{% csrf_token %}
+  {% with posted_comment_form as form %}
+
+    {{ form.content_type }}
+    {{ form.object_pk }}
+    {{ form.timestamp }}
+    {{ form.security_hash }}
+
+    <div class="row">
+      <div class="form-group">
+        <div class="col-md-4 col-sm-4">
+          <input type="text" email="name" class="form-control input-lg" placeholder="Your name" required>
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <input type="email" name="email" class="form-control input-lg" placeholder="Your email" requiered>
+        </div>
+        <div class="col-md-4 col-sm-4">
+          <input type="url" name="url" class="form-control input-lg" placeholder="Website (optional)">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group">
+        <div class="col-md-12">
+          <textarea cols="8" rows="4" name="comment" class="form-control input-lg" placeholder="Your comment" requiered></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group">
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-primary btn-lg">Submit your comment</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="visubility:hidden;display:none">
+    {{ form.honeypot }}
+    </div>
+
+  {% endwith %}
+  </form>
+</section>
