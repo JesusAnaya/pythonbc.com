@@ -8,3 +8,5 @@ local_settings.py
 /static
 .venv
 build
+media_root
+static_root
