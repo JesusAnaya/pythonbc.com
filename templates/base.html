@@ -6,7 +6,9 @@
     <!-- Basic Page Needs
       ================================================== -->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>bc.py the official website</title>
+    <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
+    <meta name="description" content="{% block meta_description %}{% endblock %}">
+    <title>{% block meta_title %}{{ settings.SITE_TITLE }}{% endblock %}</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta name="author" content="Jesus Anaya - jesus.anaya.dev@gmail.com">
