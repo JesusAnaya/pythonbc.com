@@ -43,10 +43,8 @@
 
               {% with blog_post.user as author %}
               <blockquote>
-              <a href="{{ author.google_plus }}?rel=author">
-                <span class="author"><img src="{{ MEDIA_URL }}{% thumbnail author.photo 60 60 %}"></span>
-              </a>
-              <b><i>{{ author.get_full_name|default:author.username }}</i></b> - {{ author.biography }}
+                <a href="{{ author.google_plus }}?rel=author" rel="author" target="_blank" class="author"><img src="{{ MEDIA_URL }}{% thumbnail author.photo 60 60 %}"></a>
+                <i>{{ author.get_full_name|default:author.username }}&nbsp;-&nbsp;{{ author.biography }}</i>
               </blockquote>
               {% endwith %}
 

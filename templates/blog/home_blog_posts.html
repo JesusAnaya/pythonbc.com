@@ -1,0 +1,26 @@
+{% load mezzanine_tags %}
+
+<section class="listing-cont">
+  <ul>
+    {% for blog_post in blog_posts %}
+    <li class="item post">
+      <div class="row">
+        <div class="col-md-4">
+          <a href="{{ blog_post.get_absolute_url }}" class="media-box">
+            <img src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 201 154 %}" alt="" class="img-thumbnail">
+          </a>
+        </div>
+        <div class="col-md-8">
+          <div class="post-title">
+            <h2><a href="{{ blog_post.get_absolute_url }}">{{ blog_post.title }}</a></h2>
+            <span class="meta-data">
+              <i class="fa fa-calendar"></i> on <time>{{ blog_post.publish_date|date:"jS M, Y" }}</time>
+            </span>
+          </div>
+          <p>{{ blog_post.content|striptags|truncatewords:30 }}</p>
+        </div>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
