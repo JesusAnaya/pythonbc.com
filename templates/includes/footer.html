@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load staticfiles twitter_tags %}
 
 <!-- Start Footer -->
 <footer class="site-footer">
@@ -23,8 +23,7 @@
       </div>
       <div class="col-md-4 col-sm-4 widget footer-widget">
         <h4 class="footer-widget-title">Our Church on twitter</h4>
-        <ul class="twitter-widget">
-        </ul>
+        {% include 'twitter/tweets.html' %}
       </div>
     </div>
   </div>

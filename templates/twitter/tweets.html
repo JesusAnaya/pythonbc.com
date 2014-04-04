@@ -1,0 +1,22 @@
+{% load twitter_tags i18n %}
+
+{% tweets_default as tweets %}
+
+{% if tweets %}
+<ul class="">
+    <ul>
+        {% for tweet in tweets %}
+        <li>
+            <h4>
+                <i class="fa fa-twitter"></i>
+                <small>
+                    <a href="http://twitter.com/{{ tweet.user_name }}" title="{{ tweet.full_name }}">@{{ tweet.user_name }}</a>
+                </small>
+            </h4>
+            <p>{{ tweet.text|safe }}<br>
+            <span class="date">{{ tweet.created_at }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+</ul>
+{% endif %}
