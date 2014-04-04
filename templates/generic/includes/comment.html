@@ -5,7 +5,7 @@
   <h3><i class="fa fa-comment"></i>Comments</h3>
   <ol class="comments">
     {% for comment in comments_for_thread %}
-    <li>
+    <li id="comment-{{ comment.id }}">
       <div class="post-comment-block">
         <div class="img-thumbnail">
             <img src="{% gravatar_url comment.email 40 %}" alt="avatar">
