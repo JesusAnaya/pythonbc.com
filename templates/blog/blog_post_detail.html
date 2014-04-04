@@ -1,0 +1,68 @@
+{% extends 'pages/page.html' %}
+{% load staticfiles mezzanine_tags comment_tags blog_tags i18n keyword_tags %}
+
+{% block page_title %}{% endblock %}
+
+{% block meta_title %}{{ blog_post.meta_title }}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+{% keywords_for blog_post as tags %}
+{% for tag in tags %}{% if not forloop.first %}, {% endif %}{{ tag }}{% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+{{ blog_post.description }}
+{% endmetablock %}{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <header class="single-post-header clearfix">
+        <div class="pull-right post-comments-count"> <a href="#comments"><i class="fa fa-comment"></i> {{ blog_post.comments_count }}</a> </div>
+        <h2 class="post-title">{{ blog_post.title }}</h2>
+      </header>
+
+      <article class="post-content">
+          <span class="post-meta meta-data">
+              <span> <i class="fa fa-calendar"></i>
+                  Posted on <time>{{ blog_post.publish_date|date:"jS M, Y" }}</time>
+              </span>
+              <span> <i class="fa fa-archive"></i>
+                  Categories:
+                  {% for category in blog_post.categories.all %}
+                  <a href="#">{{ category }}</a>
+                  {% endfor %}
+              </span>
+          </span>
+          <div class="featured-image">
+              <img src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 800 600 %}" alt=""></div>
+              {% block blog_post_list_post_content %}
+                {{ blog_post.content|safe }}
+              {% endblock %}
+
+              {% with blog_post.user as author %}
+              <blockquote>
+              <a href="{{ author.google_plus }}?rel=author">
+                <span class="author"><img src="{{ MEDIA_URL }}{% thumbnail author.photo 60 60 %}"></span>
+              </a>
+              <b><i>{{ author.get_full_name|default:author.username }}</i></b> - {{ author.biography }}
+              </blockquote>
+              {% endwith %}
+
+              <div class="post-meta">
+                  <i class="fa fa-tags"></i>
+                  <a href="#">Faith</a>, <a href="#">Heart</a>,<a href="#">Love</a>,<a href="#">Praise</a>,<a href="#">Sin</a>,<a href="#">Soul</a>
+              </div>
+      </article>
+
+      {% if blog_post.allow_comments %}{% comments_for blog_post %}{% endif %}
+
+    </div>
+    {% include 'blog/blog_sidebar.html' %}
+  </div>
+</div>
+
+
+
+{% endblock %}
