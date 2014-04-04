@@ -24,7 +24,9 @@
         <div class="timer-col"> <span id="minutes"></span> <span class="timer-type">mins</span> </div>
         <div class="timer-col"> <span id="seconds"></span> <span class="timer-type">secs</span> </div>
       </div>
-      <div class="col-md-2 col-sm-6 hidden-xs"> <a href="events.html" class="btn btn-primary btn-lg btn-block">All Events</a> </div>
+      <div class="col-md-2 col-sm-6 hidden-xs">
+        <a href="{% url 'page' 'events' %}" class="btn btn-primary btn-lg btn-block">All Events</a>
+      </div>
     </div>
   </div>
 </div>
