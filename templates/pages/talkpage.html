@@ -1,0 +1,17 @@
+{% extends 'pages/page.html' %}
+{% load mezzanine_tags embed_video_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <p>{% video page.talkpage.video '600x330' %}</p>
+
+            {% editable page.talkpage.content %}
+            <p>{{ page.talkpage.content|richtext_filters|safe }}</p>
+            {% endeditable %}
+        </div>
+        {% include 'blog/blog_sidebar.html' %}
+    </div>
+</div>
+{% endblock %}

@@ -23,11 +23,11 @@ ADMIN_MENU_ORDER = (
 # A three item sequence, each containing a sequence of template tags
 # used to render the admin dashboard.
 #
-# DASHBOARD_TAGS = (
-#     ("blog_tags.quick_blog", "mezzanine_tags.app_list"),
-#     ("comment_tags.recent_comments",),
-#     ("mezzanine_tags.recent_actions",),
-# )
+DASHBOARD_TAGS = (
+    ("blog_tags.quick_blog", "mezzanine_tags.app_list"),
+    ("comment_tags.recent_comments",),
+    ("mezzanine_tags.recent_actions",),
+)
 
 # A sequence of templates used by the ``page_menu`` template tag. Each
 # item in the sequence is a three item sequence, containing a unique ID
@@ -70,6 +70,13 @@ ADMIN_MENU_ORDER = (
 #         {"blank": True, "default": 1},
 #     ),
 # )
+
+SEARCH_MODEL_CHOICES = (
+    'blog.BlogPost',
+    'pages.RichTextPage',
+    'galleries.Gallery',
+    'extra_pages.TalkPage',
+)
 
 # Setting to turn on featured images for blog posts. Defaults to False.
 #
@@ -236,11 +243,14 @@ MEZZANINE_APPS = (
     #"mezzanine.mobile",
 )
 
-EXTERNAL_APPS = tuple()
+EXTERNAL_APPS = (
+    "embed_video",
+)
 
 LOCAL_APPS = (
     "website",
     "accounts",
+    "extra_pages",
 )
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + MEZZANINE_APPS + EXTERNAL_APPS

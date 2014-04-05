@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
-{% load staticfiles %}
+{% load staticfiles pages_tags %}
 
 {% block main %}
 <!-- Start Nav Backed Header -->
 <div class="nav-backed-header parallax">
-{% include 'pages/menus/breadcrumb.html' %}
+{% page_menu "pages/menus/breadcrumb.html" %}
 </div>
 <!-- End Nav Backed Header -->
 
