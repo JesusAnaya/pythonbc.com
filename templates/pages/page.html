@@ -4,7 +4,15 @@
 {% block main %}
 <!-- Start Nav Backed Header -->
 <div class="nav-backed-header parallax">
-{% page_menu "pages/menus/breadcrumb.html" %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb">
+        {% page_menu "pages/menus/breadcrumb.html" %}
+        </ol>
+      </div>
+    </div>
+  </div>
 </div>
 <!-- End Nav Backed Header -->
 
