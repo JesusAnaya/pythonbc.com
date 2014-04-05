@@ -13,46 +13,40 @@
 {% endmetablock %}{% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-      <div class="col-md-9 posts-archive">
-        {% for blog_post in blog_posts.object_list %}
-        <article class="post">
-          <div class="row">
-            <div class="col-md-4 col-sm-4">
-                <a href="{{ blog_post.get_absolute_url }}">
-                    <img src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 230 157 %}" alt="" class="img-thumbnail">
-                </a>
-            </div>
-            <div class="col-md-8 col-sm-8">
-              <h3><a href="{{ blog_post.get_absolute_url }}">{{ blog_post.title }}</a></h3>
-              <span class="post-meta meta-data">
-                <span><i class="fa fa-calendar"></i> <time>{{ blog_post.publish_date|date:"jS M, Y" }}</time></span>
-                <span>
-                    <a href="{{ blog_post.get_absolute_url }}#comments">
-                        <i class="fa fa-comment"></i> {{ blog_post.comments_count }}
-                    </a>
-                </span>
-              </span>
-              <p>{{ blog_post.description_from_content|safe }}</p>
-              <p><a href="{{ blog_post.get_absolute_url }}" class="btn btn-primary">Continue reading <i class="fa fa-long-arrow-right"></i></a></p>
-            </div>
-          </div>
-        </article>
-        {% endfor %}
 
-        <ul class="pagination">
-          <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
-          <li class="active"><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
-        </ul>
-      </div>
-      <!-- Start Sidebar -->
-      {% include 'blog/blog_sidebar.html' %}
+{% for blog_post in blog_posts.object_list %}
+<article class="post">
+  <div class="row">
+    <div class="col-md-4 col-sm-4">
+        <a href="{{ blog_post.get_absolute_url }}">
+            <img src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 230 157 %}" alt="" class="img-thumbnail">
+        </a>
     </div>
-</div>
+    <div class="col-md-8 col-sm-8">
+      <h3><a href="{{ blog_post.get_absolute_url }}">{{ blog_post.title }}</a></h3>
+      <span class="post-meta meta-data">
+        <span><i class="fa fa-calendar"></i> <time>{{ blog_post.publish_date|date:"jS M, Y" }}</time></span>
+        <span>
+            <a href="{{ blog_post.get_absolute_url }}#comments">
+                <i class="fa fa-comment"></i> {{ blog_post.comments_count }}
+            </a>
+        </span>
+      </span>
+      <p>{{ blog_post.description_from_content|safe }}</p>
+      <p><a href="{{ blog_post.get_absolute_url }}" class="btn btn-primary">Continue reading <i class="fa fa-long-arrow-right"></i></a></p>
+    </div>
+  </div>
+</article>
+{% endfor %}
+
+<ul class="pagination">
+  <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+  <li class="active"><a href="#">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+  <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+</ul>
+
 {% endblock %}

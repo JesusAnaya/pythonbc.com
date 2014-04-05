@@ -32,8 +32,17 @@
 
 <!-- Start Content -->
 <div class="main" role="main">
-<div id="content" class="content full">
-    {% block content %}{% endblock %}
-</div>
+    <div id="content" class="content full">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 posts-archive">
+                {% block content %}{% endblock %}
+                </div>
+                {% if page.use_right_panel %}
+                {% include 'blog/blog_sidebar.html' %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

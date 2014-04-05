@@ -51,31 +51,22 @@ DASHBOARD_TAGS = (
 # field instance. When specifying the field class, the path
 # ``django.models.db.`` can be omitted for regular Django model fields.
 #
-# EXTRA_MODEL_FIELDS = (
-#     (
-#         # Dotted path to field.
-#         "mezzanine.blog.models.BlogPost.image",
-#         # Dotted path to field class.
-#         "somelib.fields.ImageField",
-#         # Positional args for field class.
-#         ("Image",),
-#         # Keyword args for field class.
-#         {"blank": True, "upload_to": "blog"},
-#     ),
-#     # Example of adding a field to *all* of Mezzanine's content types:
-#     (
-#         "mezzanine.pages.models.Page.another_field",
-#         "IntegerField", # 'django.db.models.' is implied if path is omitted.
-#         ("Another name",),
-#         {"blank": True, "default": 1},
-#     ),
-# )
+EXTRA_MODEL_FIELDS = (
+    (
+        "mezzanine.pages.models.Page.use_right_panel",
+        "BooleanField",
+        ("Use Right Panel",),
+        {"default": True},
+    ),
+)
+
 
 SEARCH_MODEL_CHOICES = (
     'blog.BlogPost',
     'pages.RichTextPage',
     'galleries.Gallery',
     'extra_pages.TalkPage',
+    'extra_pages.CoursePage',
 )
 
 # Setting to turn on featured images for blog posts. Defaults to False.

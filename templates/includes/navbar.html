@@ -2,13 +2,14 @@
 <nav class="navigation">
   <ul class="sf-menu">
     <li><a href="{{ HOME_URL }}">Inicio</a></li>
-    <li><a href="about.html">Acerca de</a>
-      <ul class="dropdown">
-        <li><a href="about.html">Resumen</a></li>
+    <li><a href="{% url 'page' 'about-us' %}">Acerca de</a>
+      <!-- <ul class="dropdown">
+        <li><a href="{% url 'page' 'about-us' %}">Resumen</a></li>
         <li><a href="contact.html">Donde estamos</a></li>
         <li><a href="our-staff.html">Nuestro equipo</a></li>
-      </ul>
+      </ul> -->
     </li>
+    <!--
     <li class="megamenu"><a href="shortcodes.html">Mega Menu</a>
       <ul class="dropdown">
         <li>
@@ -44,6 +45,7 @@
         </li>
       </ul>
     </li>
+    -->
     <li><a href="events.html">Eventos</a>
       <ul class="dropdown">
         <li><a href="events.html">Events Listing</a></li>
