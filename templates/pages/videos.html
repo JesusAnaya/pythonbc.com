@@ -1,0 +1,49 @@
+{% extends 'pages/page.html' %}
+{% load staticfiles mezzanine_tags embed_video_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+      <div class="col-md-9 posts-archive">
+        {% for post in posts %}
+        <article class="post">
+          <div class="row">
+            <div class="col-md-4 col-sm-4">
+                <a href="{{ post.get_absolute_url }}">
+
+                    {% if post.video %}
+                    {% video post.video as post_video %}
+                    <img src="{{ post_video.thumbnail }}" alt="" class="img-thumbnail">
+                    {% endvideo %}
+                    {% elif post.image %}
+                    <img src="{{ MEDIA_URL }}{% thumbnail post.image 230 175 %}">
+                    {% endif %}
+                </a>
+            </div>
+            <div class="col-md-8 col-sm-8">
+              <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+              <span class="post-meta meta-data">
+                <span><i class="fa fa-calendar"></i> <time>{{ post.publish_date|date:"jS M, Y" }}</time></span>
+              </span>
+              <p>{{ post.description_from_content|safe }}</p>
+              <p><a href="{{ post.get_absolute_url }}" class="btn btn-primary">Continuar leyendo <i class="fa fa-long-arrow-right"></i></a></p>
+            </div>
+          </div>
+        </article>
+        {% endfor %}
+
+        <ul class="pagination">
+          <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+          <li class="active"><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+        </ul>
+      </div>
+      <!-- Start Sidebar -->
+      {% include 'blog/blog_sidebar.html' %}
+    </div>
+</div>
+{% endblock %}

@@ -53,10 +53,10 @@
         <li><a href="single-event.html">Single Event</a></li>
       </ul>
     </li>
-    <li><a href="sermons.html">Charlas</a>
+    <li><a href="{% url 'talks' %}">Videos</a>
       <ul class="dropdown">
-        <li><a href="sermons.html">Charlas</a></li>
-        <li><a href="single-sermon.html">Talleres</a></li>
+        <li><a href="{% url 'talks' %}">Charlas / Talleres</a></li>
+        <li><a href="{% url 'courses' %}">Cursos</a></li>
       </ul>
     </li>
     <li><a href="gallery-2cols-pagination.html">Galleria</a>

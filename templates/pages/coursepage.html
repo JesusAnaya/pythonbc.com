@@ -1,0 +1,17 @@
+{% extends 'pages/page.html' %}
+{% load mezzanine_tags embed_video_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <p>{{ MEDIA_URL }}{% thumbnail page.coursepage.image 600 330 %}</p>
+
+            {% editable page.coursepage.content %}
+            <p>{{ page.coursepage.content|richtext_filters|safe }}</p>
+            {% endeditable %}
+        </div>
+        {% include 'blog/blog_sidebar.html' %}
+    </div>
+</div>
+{% endblock %}
