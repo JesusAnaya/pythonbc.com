@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load staticfiles home_tags %}
+{% load staticfiles home_tags extra_pages_tags %}
 
 {% block main %}
 <!-- Start Hero Slider -->
@@ -102,25 +102,7 @@
               <h3>Recent Sermons</h3>
             </header>
             <section class="listing-cont">
-              <ul>
-                <li class="item sermon featured-sermon"> <span class="date">Feb 14, 2014</span>
-                  <h4><a href="single-sermon.html">How To Recover The Cutting Edge</a></h4>
-                  <div class="featured-sermon-video">
-                    <iframe width="200" height="150" src="http://player.vimeo.com/video/19564018?title=0&amp;byline=0&amp;color=007F7B"></iframe>
-                  </div>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus. Donec facilisis consectetur adipiscing elit. Nulla convallis egestas rhoncus</p>
-                  <div class="sermon-actions"> <a href="#" data-placement="top" data-toggle="tooltip" data-original-title="Video"><i class="fa fa-video-camera"></i></a> <a href="#" data-placement="top" data-toggle="tooltip" data-original-title="Audio"><i class="fa fa-headphones"></i></a> <a href="#" data-placement="top" data-toggle="tooltip" data-original-title="Read online"><i class="fa fa-file-text-o"></i></a> <a href="#" data-placement="top" data-toggle="tooltip" data-original-title="Download PDF"><i class="fa fa-book"></i></a> </div>
-                </li>
-                <li class="item sermon">
-                  <h2 class="sermon-title"><a href="single-sermon.html">Voluptatum deleniti atque corrupti</a></h2>
-                  <span class="meta-data"><i class="fa fa-calendar"></i> on 17th Dec, 2013</span> </li>
-                <li class="item sermon">
-                  <h2 class="sermon-title"><a href="single-sermon.html">Voluptatum deleniti atque corrupti</a></h2>
-                  <span class="meta-data"><i class="fa fa-calendar"></i> on 17th Dec, 2013</span> </li>
-                <li class="item sermon">
-                  <h2 class="sermon-title"><a href="single-sermon.html">Voluptatum deleniti atque corrupti</a></h2>
-                  <span class="meta-data"><i class="fa fa-calendar"></i> on 17th Dec, 2013</span> </li>
-              </ul>
+              {% render_recent_talks %}
             </section>
           </div>
         </div>

@@ -1,0 +1,32 @@
+{% load embed_video_tags %}
+
+<ul>
+  {% for talk in talks %}
+  {% if forloop.first %}
+  <li class="item sermon featured-sermon">
+    <span class="date">{{ talk.publish_date|date:"jS M, Y" }}</span>
+    <h4>
+      <a href="{{ talk.get_absolute_url }}">{{ talk.title }}</a>
+    </h4>
+    <div class="featured-sermon-video">
+      <div class="fluid-width-video-wrapper" style="padding-top: 75%;">
+        {% video talk.video "257x192" %}
+      </div>
+    </div>
+    <p>
+      {{ talk.content|striptags|truncatewords:25 }}
+    </p>
+  </li>
+  {% else %}
+  <li class="item sermon">
+    <h2 class="sermon-title">
+      <a href="{{ talk.get_absolute_url }}">{{ talk.title }}</a>
+    </h2>
+    <span class="meta-data">
+      <i class="fa fa-calendar"></i>
+      on {{ talk.publish_date|date:"jS M, Y" }}
+    </span>
+  </li>
+  {% endif %}
+  {% endfor %}
+</ul>
