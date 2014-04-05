@@ -36,7 +36,7 @@
               </span>
           </span>
           <div class="featured-image">
-              <img src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 800 600 %}" alt=""></div>
+              <img src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 750 400 %}" alt=""></div>
               {% block blog_post_list_post_content %}
                 {{ blog_post.content|safe }}
               {% endblock %}
