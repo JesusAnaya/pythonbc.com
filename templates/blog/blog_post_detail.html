@@ -38,12 +38,6 @@
         <span> <i class="fa fa-calendar"></i>
             Posted on <time>{{ blog_post.publish_date|date:"jS M, Y" }}</time>
         </span>
-        <span> <i class="fa fa-archive"></i>
-            Categories:
-            {% for category in blog_post.categories.all %}
-            <a href="#">{{ category }}</a>
-            {% endfor %}
-        </span>
     </span>
     <div class="featured-image">
         <img src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 750 400 %}" alt=""></div>
