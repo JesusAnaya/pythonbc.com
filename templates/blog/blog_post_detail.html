@@ -14,6 +14,19 @@
 {{ blog_post.description }}
 {% endmetablock %}{% endblock %}
 
+{% block extra_head %}{{ block.super }}
+  <!-- Facebook Metadata -->
+  <meta property="og:title" content="{{ blog_post.title }}"/>
+  <meta property="og:description" content='{{ blog_post.content|striptags|truncatewords:30 }}'/>
+  <meta property="og:url" content="{{ HOME_URL }}{{ blog_post.get_absolute_url }}"/>
+  <meta property="og:image" content="{{ HOME_URL }}{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 200 200 %}"/>
+
+  <!-- Google+ Metadata /-->
+  <meta itemprop="name" content="{{ blog_post.title }}">
+  <meta itemprop="description" content='{{ blog_post.content|striptags|truncatewords:30 }}'>
+  <meta itemprop="image" content="{{ HOME_URL }}{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 200 200 %}">
+{% endblock %}
+
 {% block content %}
 <header class="single-post-header clearfix">
   <div class="pull-right post-comments-count"> <a href="#comments"><i class="fa fa-comment"></i> {{ blog_post.comments_count }}</a> </div>
