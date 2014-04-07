@@ -1,6 +1,7 @@
 from django import template
 from django.conf import settings
-from mezzanine.blog.models import BlogPost
+from django.db.models import Count
+from mezzanine.blog.models import BlogPost, BlogCategory
 register = template.Library()
 
 
@@ -22,4 +23,7 @@ def render_generic_sidebar():
 
 @register.inclusion_tag("sidebars/blog.html")
 def render_blog_sidebar():
-    return {}
+    posts = BlogPost.objects.published()
+    categories = BlogCategory.objects.filter(blogposts__in=posts)
+    categories = list(categories.annotate(post_count=Count("blogposts")))
+    return {'categories': categories}
