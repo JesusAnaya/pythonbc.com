@@ -1,9 +1,11 @@
+{% load mezzanine_tags blog_tags keyword_tags %}
+
 <!-- Start Sidebar -->
 <div class="col-md-3 sidebar">
   <form action='/search/' method='get'>
     <div class="widget sidebar-widget search-form-widget">
       <div class="input-group input-group-lg">
-        <input type="text" name="q" class="form-control" placeholder="Search Posts...">
+        <input type="text" name="q" class="form-control" placeholder="Buscar Posts...">
         <input type="hidden" name="type" value="blog.BlogPost">
         <span class="input-group-btn">
           <button class="btn btn-default" type="button"><i class="fa fa-search fa-lg"></i></button>
@@ -13,19 +15,25 @@
   </form>
   <div class="widget sidebar-widget">
     <div class="sidebar-widget-title">
-      <h3>Post Categories</h3>
+      <h3>Categor&iacute;as: {{ blog_categories }}</h3>
     </div>
     <ul>
-      <li><a href="#">Faith</a> (10)</li>
-      <li><a href="#">Missions</a> (12)</li>
-      <li><a href="#">Salvation</a> (34)</li>
-      <li><a href="#">Worship</a> (14)</li>
+      {% for categorie in categories %}
+      <li><a href="{{ categorie.get_absolute_url }}">{{ categorie }}</a></li>
+      {% endfor %}
     </ul>
   </div>
   <div class="widget sidebar-widget">
     <div class="sidebar-widget-title">
       <h3>Post Tags</h3>
     </div>
-    <div class="tag-cloud"> <a href="#">Faith</a> <a href="#">Heart</a> <a href="#">Love</a> <a href="#">Praise</a> <a href="#">Sin</a> <a href="#">Soul</a> <a href="#">Missions</a> <a href="#">Worship</a> <a href="#">Faith</a> <a href="#">Heart</a> <a href="#">Love</a> <a href="#">Praise</a> <a href="#">Sin</a> <a href="#">Soul</a> <a href="#">Missions</a> <a href="#">Worship</a> </div>
+    {% keywords_for blog.blogpost as tags %}
+    <div class="tag-cloud">
+      {% if tags %}
+        {% for tag in tags|sort_by:"item_count" %}
+        <a href="{% url 'blog_post_list_tag' tag %}">{{ tag }}</a>
+        {% endfor %}
+      {% endif %}
+    </div>
   </div>
 </div>
