@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load staticfiles pages_tags %}
+{% load staticfiles pages_tags sidebar_tags %}
 
 {% block main %}
 <!-- Start Nav Backed Header -->
@@ -38,9 +38,13 @@
                 <div class="col-md-9 posts-archive">
                 {% block content %}{% endblock %}
                 </div>
-                {% if page.use_right_panel %}
-                {% include 'sidebars/generic.html' %}
-                {% endif %}
+                {% block sidebar_space %}
+                  {% if page.use_right_panel %}
+                    {% block sidebar %}
+                      {% render_generic_sidebar %}
+                    {% endblock %}
+                  {% endif %}
+                {% endblock %}
             </div>
         </div>
     </div>
