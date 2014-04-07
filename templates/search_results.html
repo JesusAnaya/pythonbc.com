@@ -22,7 +22,7 @@ No hay resultados para la busqueda: {{ query }}
 {% else %}
 
 {% with start=results.start_index end=results.end_index total=results.paginator.count %}
-Mostrando {{ start }} a {{ end }} de {{ total }} resultadoss en {{ search_type }} para la busqueda: {{ query }}
+Mostrando del {{ start }} al {{ end }} de {{ total }} resultados para la busqueda: {{ query }}
 {% endwith %}
 
 <div id="search-results">
