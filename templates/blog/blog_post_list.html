@@ -1,5 +1,5 @@
 {% extends 'pages/page.html' %}
-{% load staticfiles mezzanine_tags blog_tags keyword_tags %}
+{% load staticfiles mezzanine_tags blog_tags keyword_tags sidebar_tags %}
 
 {% block meta_title %}bc.py - Blog{% endblock %}
 
@@ -41,4 +41,8 @@
 
 {% pagination_for blog_posts %}
 
+{% endblock %}
+
+{% block sidebar %}
+  {% render_blog_sidebar %}
 {% endblock %}
