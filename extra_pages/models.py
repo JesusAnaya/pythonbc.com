@@ -9,6 +9,7 @@ class TalkPage(Page, RichText):
     video = EmbedVideoField()
 
     class Meta:
+        ordering = ('-publish_date',)
         verbose_name = "Talk Page"
         verbose_name_plural = "Talk Pages"
 
@@ -24,6 +25,7 @@ class CoursePage(Page, RichText):
                                 max_length=255, null=True)
 
     class Meta:
+        ordering = ('-publish_date',)
         verbose_name = "Course Page"
         verbose_name_plural = "Course Pages"
 
