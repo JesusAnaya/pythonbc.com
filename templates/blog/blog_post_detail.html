@@ -1,5 +1,5 @@
 {% extends 'pages/page.html' %}
-{% load staticfiles mezzanine_tags comment_tags blog_tags i18n keyword_tags %}
+{% load staticfiles mezzanine_tags comment_tags blog_tags sidebar_tags keyword_tags %}
 
 {% block page_title %}{% endblock %}
 
@@ -60,4 +60,8 @@
 
 {% if blog_post.allow_comments %}{% comments_for blog_post %}{% endif %}
 
+{% endblock %}
+
+{% block sidebar %}
+  {% render_blog_sidebar %}
 {% endblock %}

@@ -1,4 +1,16 @@
+{% load mezzanine_tags %}
 <div class="col-md-3 sidebar">
+  <form action='/search/' method='get'>
+    <div class="widget sidebar-widget search-form-widget">
+      <div class="input-group input-group-lg">
+        <input type="text" name="q" class="form-control" placeholder="Buscar...">
+        <input type="hidden" name="type" value="">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><i class="fa fa-search fa-lg"></i></button>
+        </span>
+      </div>
+    </div>
+  </form>
   <!--
   <div class="widget sidebar-widget">
     <div class="sidebar-widget-title">
@@ -16,18 +28,22 @@
   <!-- Recent Posts Widget -->
   <div class="widget-recent-posts widget">
     <div class="sidebar-widget-title">
-      <h3>Recent Posts</h3>
+      <h3>Publicaciones recientes</h3>
     </div>
     <ul>
-      <li class="clearfix"> <a href="#" class="media-box post-image"> <img src="http://placehold.it/800x600&amp;text=IMAGE+PLACEHOLDER" alt="" class="img-thumbnail"> </a>
-        <div class="widget-blog-content"><a href="#">Voluptatum deleniti atque corrupti voluptatum deleniti atque corrupti</a> <span class="meta-data"><i class="fa fa-calendar"></i> on 17th Dec, 2013</span> </div>
+      {% for post in blog_posts %}
+      <li class="clearfix">
+        <a href="#" class="media-box post-image">
+          <img src="{{ MEDIA_URL }}{% thumbnail post.featured_image 69 55 %}" alt="{{ post.title }}" class="img-thumbnail">
+        </a>
+        <div class="widget-blog-content">
+          <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+          <span class="meta-data">
+            <i class="fa fa-calendar"></i> <time>{{ post.publish_date|date:"jS M, Y" }}</time>
+          </span>
+        </div>
       </li>
-      <li class="clearfix"> <a href="#" class="media-box post-image"> <img src="http://placehold.it/800x600&amp;text=IMAGE+PLACEHOLDER" alt="" class="img-thumbnail"> </a>
-        <div class="widget-blog-content"><a href="#">Voluptatum deleniti atque corrupti</a> <span class="meta-data"><i class="fa fa-calendar"></i> on 17th Dec, 2013</span> </div>
-      </li>
-      <li class="clearfix"> <a href="#" class="media-box post-image"> <img src="http://placehold.it/800x600&amp;text=IMAGE+PLACEHOLDER" alt="" class="img-thumbnail"> </a>
-        <div class="widget-blog-content"><a href="#">Voluptatum deleniti atque corrupti voluptatum deleniti atque corrupti</a> <span class="meta-data"><i class="fa fa-calendar"></i> on 17th Dec, 2013</span> </div>
-      </li>
+      {% endfor %}
     </ul>
   </div>
   <!-- Recent Comments Widget

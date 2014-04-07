@@ -7,6 +7,6 @@ register = template.Library()
 @register.inclusion_tag("blog/home_blog_posts.html")
 def render_recent_posts():
     return {
-        'blog_posts': BlogPost.objects.all()[:2],
+        'blog_posts': BlogPost.objects.all()[:3],
         'MEDIA_URL': settings.MEDIA_URL
     }

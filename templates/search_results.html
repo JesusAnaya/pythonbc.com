@@ -1,0 +1,46 @@
+{% extends 'pages/page.html' %}
+{% load mezzanine_tags sidebar_tags %}
+
+{% block meta_title %}Resultados de la busqueda{% endblock %}
+{% block title %}Resultados de la busqueda{% endblock %}
+{% block extra_head %}
+<meta name="robots" content="noindex">
+{% endblock %}
+
+{% block page_title %}
+<div class="section-title">
+  <h2>Resultados</h2>
+  <span></span>
+</div>
+{% endblock %}
+
+{% block content %}
+<!--=========== SPAN ===========-->
+
+{% if results.paginator.count == 0 %}
+No hay resultados para la busqueda: {{ query }}
+{% else %}
+
+{% with start=results.start_index end=results.end_index total=results.paginator.count %}
+Mostrando {{ start }} a {{ end }} de {{ total }} resultadoss en {{ search_type }} para la busqueda: {{ query }}
+{% endwith %}
+
+<div id="search-results">
+    <p>
+    {% for result in results.object_list %}
+    <h5>{{ forloop.counter0|add:results.start_index }})
+        <a href="{{ result.get_absolute_url }}">{{ result }}</a></h5>
+    <p>{{ result.description|truncatewords_html:20|safe }}</p>
+    {% endfor %}
+    </p>
+</div>
+
+{% endif %}
+
+{% pagination_for results %}
+<!--=========== SPAN ===========-->
+{% endblock %}
+
+{% block sidebar_space %}
+    {% render_generic_sidebar %}
+{% endblock %}
