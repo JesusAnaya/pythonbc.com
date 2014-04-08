@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load staticfiles home_tags extra_pages_tags %}
+{% load staticfiles home_tags extra_pages_tags events_tags %}
 
 {% block main %}
 <!-- Start Hero Slider -->
@@ -14,7 +14,7 @@
 <!-- End Hero Slider -->
 
 <!-- Start Notice Bar -->
-{% include 'includes/notice-bar.html' %}
+{% render_home_notice_bar %}
 <!-- End Notice Bar -->
 
 <!-- Start Content -->
@@ -25,7 +25,7 @@
         <!-- Start Featured Blocks -->
         <div class="featured-blocks clearfix">
           <div class="col-md-4 col-sm-4 featured-block">
-            <a href="our-staff.html" class="img-thumbnail">
+            <a href="#" class="img-thumbnail">
               <img src="{% static 'images/bcpy-staff-image.jpg' %}" alt="staff">
               <strong>Nuestro equipo</strong> <span class="more">leer m&aacute;s</span>
             </a>
@@ -38,7 +38,13 @@
             </a>
           </div>
 
-          <div class="col-md-4 col-sm-4 featured-block"> <a href="sermons.html" class="img-thumbnail"> <img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt="staff"> <strong>Sermons Archive</strong> <span class="more">read more</span> </a> </div>
+          <div class="col-md-4 col-sm-4 featured-block">
+            <a href="https://www.facebook.com/groups/pythonbc/" class="img-thumbnail" target="_blank">
+              <img src="{% static 'images/facebook-group-pythonbc.png' %}" alt="facebook/pythonbc">
+              <strong>Únete al grupo</strong> <span class="more">unirse</span>
+            </a>
+          </div>
+
         </div>
         <!-- End Featured Blocks -->
       </div>
@@ -49,28 +55,10 @@
             <header class="listing-header">
               <h3>Pr&oacute;ximos Eventos</h3>
             </header>
-            <section class="listing-cont">
-              <ul>
-                <li class="item event-item">
-                  <div class="event-date"> <span class="date">06</span> <span class="month">Aug</span> </div>
-                  <div class="event-detail">
-                    <h4><a href="single-event.html">Monday Prayer</a></h4>
-                    <span class="event-dayntime meta-data">Monday | 07:00 AM</span> </div>
-                  <div class="to-event-url">
-                    <div><a href="single-event.html" class="btn btn-default btn-sm">Detalles</a></div>
-                  </div>
-                </li>
-                <li class="item event-item">
-                  <div class="event-date"> <span class="date">06</span> <span class="month">Aug</span> </div>
-                  <div class="event-detail">
-                    <h4><a href="single-event.html">Monday Prayer</a></h4>
-                    <span class="event-dayntime meta-data">Monday | 07:00 AM</span> </div>
-                  <div class="to-event-url">
-                    <div><a href="single-event.html" class="btn btn-default btn-sm">Detalles</a></div>
-                  </div>
-                </li>
-              </ul>
-            </section>
+
+            {# Render next events at home #}
+            {% render_home_events %}
+
           </div>
           <div class="spacer-30"></div>
           <!-- Latest News -->
@@ -99,6 +87,7 @@
 </div>
 <!-- Start Featured Gallery -->
 <div class="featured-gallery">
+  <!--
   <div class="container">
     <div class="row">
       <div class="col-md-3 col-sm-3">
@@ -109,6 +98,7 @@
       <div class="col-md-3 col-sm-3 post format-image"> <a href="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" class="media-box" data-rel="prettyPhoto[Gallery]"> <img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt=""> </a> </div>
     </div>
   </div>
+  -->
 </div>
 <!-- End Featured Gallery -->
 {% endblock %}
