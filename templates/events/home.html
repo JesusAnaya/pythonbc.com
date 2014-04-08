@@ -8,7 +8,7 @@
         <span class="date">{{ event.start.day }}</span> <span class="month">{% smonth event.start.month %}</span>
       </div>
       <div class="event-detail">
-        <h4><a href="single-event.html">{{ event.title }}</a></h4>
+        <h4><a href="{{ event.get_absolute_url }}">{{ event.title }}</a></h4>
         <span class="event-dayntime meta-data">
           {% sday event.start.weekday %} | {{ event.start|date:'f A' }}
         </span>

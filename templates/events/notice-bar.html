@@ -13,7 +13,7 @@
       {% if event %}
       {% with event.start as start %}
       <div class="col-md-3 col-sm-6 col-xs-6 notice-bar-event-title">
-        <h5><a href="single-event.html">{{ event.title }}</a></h5>
+        <h5><a href="{{ event.get_absolute_url }}">{{ event.title }}</a></h5>
 
         <span class="meta-data">{% sday start.weekday %} {{ start.day }} de {% smonth start.month %}, {{ start.year }}</span>
       </div>
