@@ -1,6 +1,10 @@
 {% extends "pages/page.html" %}
 
-{% load mezzanine_tags %}
+{% load mezzanine_tags staticfiles %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/form-custom.css' %}">
+{% endblock %}
 
 {% block extra_js %}
 {{ block.super }}

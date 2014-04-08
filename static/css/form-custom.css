@@ -1,0 +1,30 @@
+
+
+.posts-archive input, .posts-archive textarea {
+    height: 46px;
+    padding: 10px 16px 16px 8px;
+    font-size: 15px;
+    line-height: 1.33;
+    border: 1px solid rgb(202, 202, 202);
+    border-radius: 3px;
+    width: 60%;
+    min-width: 310px;
+}
+
+.posts-archive textarea {
+    height: 140px;
+    width: 80%;
+}
+
+.posts-archive input[type='submit'] {
+    width: 80%;
+}
+
+.posts-archive label {
+    display: inherit;
+    border-right: 11px;
+}
+
+.help-block {
+    display: none;
+}
