@@ -81,9 +81,6 @@ USE_SOUTH = True
 # MAIN DJANGO SETTINGS #
 ########################
 
-# People who get code error notifications.
-# In the format (('Full Name', 'email@example.com'),
-#                ('Full Name', 'anotheremail@example.com'))
 ADMINS = (
     ('Jesus Anaya', 'jesus.anaya.dev@gmail.com'),
 )
@@ -102,7 +99,7 @@ ALLOWED_HOSTS = ['*']
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = "America/Tijuana"
+TIME_ZONE = "America/Los_Angeles"
 
 # If you set this to True, Django will use timezone-aware datetimes.
 USE_TZ = True
@@ -242,6 +239,7 @@ LOCAL_APPS = (
     "website",
     "accounts",
     "extra_pages",
+    "events",
 )
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + MEZZANINE_APPS + EXTERNAL_APPS
