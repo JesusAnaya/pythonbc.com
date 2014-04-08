@@ -1,0 +1,38 @@
+{% extends 'pages/page.html' %}
+{% load mezzanine_tags spanish %}
+
+{% block content %}
+<!-- Events Listing -->
+<div class="listing events-listing">
+  <header class="listing-header">
+    <div class="row">
+      <div class="col-md-6 col-sm-6">
+        <h3>Todos los eventos</h3>
+      </div>
+    </div>
+  </header>
+  <section class="listing-cont">
+    <ul>
+      {% for event in events %}
+      <li class="item event-item">
+        <div class="event-date">
+          <span class="date">{{ event.start.day }}</span> <span class="month">{% smonth event.start.month %}</span>
+        </div>
+        <div class="event-detail">
+          <h4><a href="single-event.html">{{ event.title }}</a></h4>
+          <span class="event-dayntime meta-data">
+            {% sday event.start.weekday %} | {{ event.start|date:'f A' }}
+          </span>
+        </div>
+        <div class="to-event-url">
+          <div><a href="{{ event.get_absolute_url }}" class="btn btn-default btn-sm">Detalles</a></div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+</div>
+
+{% pagination_for page_obj %}
+
+{% endblock %}

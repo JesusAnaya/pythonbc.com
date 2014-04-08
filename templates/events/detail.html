@@ -1,0 +1,42 @@
+{% extends 'pages/page.html' %}
+{% load mezzanine_tags spanish %}
+
+{% block content %}
+<header class="single-post-header clearfix">
+  {# <nav class="btn-toolbar pull-right"> <a href="#" class="btn btn-default" data-placement="bottom" data-toggle="tooltip" data-original-title="Print"><i class="fa fa-print"></i></a> <a href="#" class="btn btn-default" data-placement="bottom" data-toggle="tooltip" data-original-title="Contact us"><i class="fa fa-envelope"></i></a> <a href="#" class="btn btn-default" data-placement="bottom" data-toggle="tooltip" data-original-title="Share event"><i class="fa fa-location-arrow"></i></a> </nav> #}
+  <h2 class="post-title">{{ event.title }}</h2>
+</header>
+<article class="post-content">
+  <div class="event-description">
+    {{ event.gmap|safe }}
+    <div class="spacer-20"></div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Event details</h3>
+          </div>
+          <div class="panel-body">
+            {% with event.end as end %}
+            {% with event.start as start %}
+            <ul class="info-table">
+              <li><i class="fa fa-calendar"></i> <strong>{% sday start.weekday %}</strong> | {{ start.day }} de {% smonth start.month %}, {{ start.year }}</li>
+              <li><i class="fa fa-clock-o"></i> {{ start|date:"f A" }} - {{ end|date:"f A" }}</li>
+              <li><i class="fa fa-map-marker"></i> {{ event.where }}</li>
+            </ul>
+            {% endwith %}
+            {% endwith %}
+          </div>
+        </div>
+      </div>
+      <!--<div class="col-md-4">
+        <ul class="list-group">
+          <li class="list-group-item"> <span class="badge">14</span> Attendees </li>
+          <li class="list-group-item"> <span class="badge">4</span> Staff members </li>
+        </ul>
+      </div>-->
+    </div>
+    <p>{{ event.content|safe }}</p>
+  </div>
+</article>
+{% endblock %}
