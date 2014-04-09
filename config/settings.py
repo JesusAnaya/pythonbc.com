@@ -15,7 +15,8 @@ from __future__ import absolute_import, unicode_literals
 #
 ADMIN_MENU_ORDER = (
     ("Content", ("pages.Page", "blog.BlogPost",
-       "generic.ThreadedComment", ("Media Library", "fb_browse"),)),
+       "generic.ThreadedComment", ("Media Library", "fb_browse"),
+       "generic.Keyword")),
     ("Site", ("sites.Site", "redirects.Redirect", "conf.Setting")),
     ("Users", ("accounts.User", "auth.Group",)),
 )
