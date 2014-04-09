@@ -9,6 +9,7 @@ class Event(Page, RichText):
     end = models.DateTimeField()
     where = models.CharField(max_length=255)
     gmap = models.TextField()
+    external_url = models.URLField(blank=True, null=True)
 
     class Meta:
         verbose_name = "Event"
