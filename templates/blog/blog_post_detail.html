@@ -14,6 +14,20 @@
 {{ blog_post.description }}
 {% endmetablock %}{% endblock %}
 
+{% block extra_css %}{{ block.super }}
+<link type="text/css" rel="stylesheet" href="{% static 'css/shCoreDjango.css' %}"/>
+{% endblock %}
+
+{% block extra_js %}{{ block.super }}
+<script type="text/javascript" src="{% static 'js/shCore.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/shBrushPython.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/shBrushJScript.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/shBrushXml.js' %}"></script>
+<script type="text/javascript">
+SyntaxHighlighter.all();
+</script>
+{% endblock %}
+
 {% block extra_head %}{{ block.super }}
   <!-- Facebook Metadata -->
   <meta property="og:title" content="{{ blog_post.title }}"/>

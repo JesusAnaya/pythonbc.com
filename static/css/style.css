@@ -1475,6 +1475,11 @@ ol.breadcrumb > .active{
 	margin-bottom:0;
 	padding-bottom:6px;
 }
+
+.post-content ul, .post-content ol {
+	list-style: disc;
+}
+
 .post-content{
 	padding-top:20px;
 }

@@ -1,5 +1,4 @@
 
-
 .posts-archive input, .posts-archive textarea {
     height: 46px;
     padding: 10px 16px 16px 8px;
@@ -27,4 +26,10 @@
 
 .help-block {
     display: none;
+}
+
+@media only screen and (max-width : 1024px) {
+    .posts-archive input, .posts-archive textarea {
+        width: 100%;
+    }
 }

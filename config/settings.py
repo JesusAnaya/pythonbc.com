@@ -200,6 +200,10 @@ ROOT_URLCONF = "config.urls"
 TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
 STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, "static"),)
 
+# Tinymce Settings
+RICHTEXT_WIDGET_CLASS = 'website.forms.TinyMceWidget'
+FILEBROWSER_URL_TINYMCE = "%stiny_mce/" % STATIC_URL
+
 
 ################
 # APPLICATIONS #
