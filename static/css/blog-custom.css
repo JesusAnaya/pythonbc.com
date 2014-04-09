@@ -10,10 +10,10 @@
     margin-left: 17px;
 }
 
-p {
+.post-content p {
     margin: 15px 0 15px 0;
 }
 
-div {
+.post-content div {
     margin: 10px 0;
 }
