@@ -15,6 +15,7 @@
 {% endmetablock %}{% endblock %}
 
 {% block extra_css %}{{ block.super }}
+<link type="text/css" rel="stylesheet" href="{% static 'css/blog-custom.css' %}"/>
 <link type="text/css" rel="stylesheet" href="{% static 'css/shCoreDjango.css' %}"/>
 {% endblock %}
 
@@ -67,10 +68,17 @@ SyntaxHighlighter.all();
         </blockquote>
         {% endwith %}
 
+        {% keywords_for blog_post as tags %}
+        {% if tags %}
         <div class="post-meta">
-            <i class="fa fa-tags"></i>
-            <a href="#">Faith</a>, <a href="#">Heart</a>,<a href="#">Love</a>,<a href="#">Praise</a>,<a href="#">Sin</a>,<a href="#">Soul</a>
+          <i class="fa fa-tags"></i>
+          {% for tag in tags %}
+          <a href="{% url 'blog_post_list_tag' tag.slug %}">{{ tag }}</a>
+          {% endfor %}
         </div>
+        {% else %}
+        <hr>
+        {% endif %}
 </article>
 
 {% if blog_post.allow_comments %}{% comments_for blog_post %}{% endif %}

@@ -31,7 +31,7 @@
     <div class="tag-cloud">
       {% if tags %}
         {% for tag in tags|sort_by:"item_count" %}
-        <a href="{% url 'blog_post_list_tag' tag %}">{{ tag }}</a>
+        <a href="{% url 'blog_post_list_tag' tag.slug %}">{{ tag }}</a>
         {% endfor %}
       {% endif %}
     </div>
