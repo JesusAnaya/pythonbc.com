@@ -32,7 +32,7 @@
             </a>
         </span>
       </span>
-      <p>{{ blog_post.description_from_content|safe }}</p>
+      <p>{{ blog_post.content|striptags|truncatewords:"50" }}</p>
       <p><a href="{{ blog_post.get_absolute_url }}" class="btn btn-primary">Continuar leyendo <i class="fa fa-long-arrow-right"></i></a></p>
     </div>
   </div>
