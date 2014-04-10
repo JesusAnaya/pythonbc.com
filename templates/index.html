@@ -1,6 +1,13 @@
 {% extends 'base.html' %}
 {% load staticfiles home_tags extra_pages_tags events_tags %}
 
+{% block extra_head %}{{ block.super }}
+<meta property="og:title" content="{{ settings.SITE_TITLE }}"/>
+<meta property="og:description" content='bc.py es una comunidad abierta de desarrolladores e interesados en las tecnologías alrededor del lenguaje de programación Python.'/>
+<meta property="og:url" content="{{ HOME_URL }}"/>
+<meta property="og:image" content="{{ HOME_URL }}{% static 'images/logo-200x200.png' %}"/>
+{% endblock %}
+
 {% block main %}
 <!-- Start Hero Slider -->
 <div class="hero-slider flexslider clearfix" data-autoplay="yes" data-pagination="yes" data-arrows="yes" data-style="fade" data-pause="yes">

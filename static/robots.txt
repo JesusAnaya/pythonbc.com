@@ -1,0 +1,6 @@
+User-agent: *
+sitemap: /sitemap.xml
+Disallow: /static/
+Disallow: /search/
+Disallow: /admin/
+Disallow: /comment/

@@ -30,6 +30,8 @@ templates = {
     },
 }
 
+#####
+
 def upload_templates():
     for name in templates:
         template = templates.get(name)
@@ -93,4 +95,3 @@ def nginx():
     remote_path = template.get('remote_path')
     upload_template(local_path, remote_path, env, use_sudo=True, backup=False)
     sudo(template.get('reload_command'))
-
