@@ -28,6 +28,12 @@
 <script type="text/javascript">
 SyntaxHighlighter.all();
 </script>
+
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">
+  stLight.options({publisher: "abd9a9e3-9298-4191-a1e7-1059c4dd1de7", doNotHash: false, doNotCopy: false, hashAddressBar: false});
+</script>
 {% endblock %}
 
 {% block extra_head %}{{ block.super }}
@@ -49,8 +55,19 @@ SyntaxHighlighter.all();
             Publicado en <time>{{ blog_post.publish_date|date:"jS M, Y" }}</time>
         </span>
     </span>
+
     <div class="featured-image">
-        <img src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 750 400 %}" alt=""></div>
+      <img src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 750 400 %}" alt="">
+    </div>
+
+    {# Social buttons #}
+    <div>
+      <span class='st_facebook_large' displayText='Facebook'></span>
+      <span class='st_twitter_large' displayText='Tweet'></span>
+      <span class='st_googleplus_large' displayText='Google +'></span>
+      <span class='st_linkedin_large' displayText='LinkedIn'></span>
+    </div>
+
         {% block blog_post_list_post_content %}
           {{ blog_post.content|safe }}
         {% endblock %}
@@ -76,7 +93,6 @@ SyntaxHighlighter.all();
 </article>
 
 {% if blog_post.allow_comments %}{% comments_for blog_post %}{% endif %}
-
 {% endblock %}
 
 {% block sidebar %}
