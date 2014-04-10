@@ -62,10 +62,10 @@ SyntaxHighlighter.all();
 
     {# Social buttons #}
     <div>
-      <span class='st_facebook_large' displayText='Facebook'></span>
-      <span class='st_twitter_large' displayText='Tweet'></span>
-      <span class='st_googleplus_large' displayText='Google +'></span>
-      <span class='st_linkedin_large' displayText='LinkedIn'></span>
+      <a href="https://facebook.com/sharer.php?u={{ HOME_URL }}{{ blog_post.get_absolute_url }}" rel="nofollow" target="_blank" class="btn btn-fb">Facebook</a>
+      <a href="https://twitter.com/intent/tweet?url={{ HOME_URL }}{{ blog_post.get_absolute_url }}&text={{ blog_post.title }}&via=PythonBC" rel="nofollow" target="_blank" class="btn btn-tw">Twitter</a>
+      <a href="https://plus.google.com/share?url={{ HOME_URL }}{{ blog_post.get_absolute_url }}" rel="nofollow" target="_blank" class="btn btn-gp">Google+</a>
+      <a href="https://www.linkedin.com/cws/share?url={{ HOME_URL }}{{ blog_post.get_absolute_url }}" rel="nofollow" target="_blank" class="btn btn-li">Linkedin</a>
     </div>
 
         {% block blog_post_list_post_content %}

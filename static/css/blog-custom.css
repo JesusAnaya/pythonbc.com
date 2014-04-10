@@ -21,3 +21,25 @@
 i.fa.fa-comment {
     margin-right: 10px;
 }
+
+/* social btns */
+
+.btn-fb {
+    color: white;
+    background-color: #4667A6;
+}
+
+.btn-tw {
+    color: white;
+    background-color: #00A3D4;
+}
+
+.btn-gp {
+    color: white;
+    background-color: #da4834;
+}
+
+.btn-li {
+    color: white;
+    background-color: #B3B3B3;
+}
