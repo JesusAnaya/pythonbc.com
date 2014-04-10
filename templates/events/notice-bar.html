@@ -17,7 +17,7 @@
 
         <span class="meta-data">{% sday start.weekday %} {{ start.day }} de {% smonth start.month %}, {{ start.year }}</span>
       </div>
-      <div id="counter" class="col-md-4 col-sm-6 col-xs-12 counter" data-date="{{ start|date:"j M, Y" }}">
+      <div id="counter" class="col-md-4 col-sm-6 col-xs-12 counter" data-date="{{ start|date:"Y/m/d H:i" }}">
         <div class="timer-col"> <span id="days"></span> <span class="timer-type">dias</span> </div>
         <div class="timer-col"> <span id="hours"></span> <span class="timer-type">hrs</span> </div>
         <div class="timer-col"> <span id="minutes"></span> <span class="timer-type">mins</span> </div>
