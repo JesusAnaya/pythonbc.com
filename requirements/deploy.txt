@@ -1,3 +1,4 @@
 -r project.txt
 
 gunicorn
+python-memcached
