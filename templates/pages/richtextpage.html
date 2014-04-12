@@ -1,7 +1,7 @@
 {% extends "pages/page.html" %}
 {% load mezzanine_tags staticfiles %}
 
-{% block extra_head %}
+{% block extra_css %}{{ block.super }}
 <link rel="stylesheet" type="text/css" href="{% static 'css/richtextpage-contet.css' %}">
 {% endblock %}
 

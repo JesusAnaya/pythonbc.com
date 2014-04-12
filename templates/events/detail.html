@@ -1,6 +1,10 @@
 {% extends 'pages/page.html' %}
 {% load mezzanine_tags spanish %}
 
+{% block extra_css %}{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static 'css/richtextpage-contet.css' %}">
+{% endblock %}
+
 {% block content %}
 <header class="single-post-header clearfix">
   <nav class="btn-toolbar pull-right">
@@ -48,7 +52,7 @@
         </ul>
       </div>-->
     </div>
-    <p>{{ event.content|safe }}</p>
+    <p class="richtextpage-contet">{{ event.content|safe }}</p>
   </div>
 </article>
 {% endblock %}
