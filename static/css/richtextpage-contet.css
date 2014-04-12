@@ -1,0 +1,19 @@
+.richtextpage-contet ul, .richtextpage-contet ol {
+    list-style: disc;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 15px;
+}
+
+.richtextpage-contet ul li, .richtextpage-contet ol li {
+    padding-left: 0;
+    margin-left: 17px;
+}
+
+.richtextpage-contet b {
+    font-weight: bold;
+}
+
+.richtextpage-contet ol {
+    list-style-type: decimal;
+}
