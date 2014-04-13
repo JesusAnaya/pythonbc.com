@@ -1,0 +1,37 @@
+{% extends 'pages/page.html' %}
+{% load mezzanine_tags extra_pages_tags spanish %}
+
+{% block content %}
+    {% for gallery in galleries %}
+    <article class="post">
+      <div class="row">
+        <div class="col-md-4 col-sm-4">
+            <a href="{{ gallery.get_absolute_url }}">
+                <img src="{% gallery_get_front_image gallery %}" alt="{{ gallery.title }}" class="img-thumbnail">
+            </a>
+        </div>
+
+        <div class="col-md-8 col-sm-8">
+          <h3><a href="{{ gallery.get_absolute_url }}">{{ gallery.title }}</a></h3>
+          <span class="post-meta meta-data">
+            <span>
+                <i class="fa fa-calendar"></i>
+                {% with gallery.publish_date as publish %}
+                <time>{% smonth publish.month %} {{ publish.day }}, {{ publish.year }}</time>
+                {% endwith %}
+            </span>
+
+          </span>
+          <p>{{ gallery.content|striptags|truncatewords:"50" }}</p>
+          <p>
+            <a href="{{ gallery.get_absolute_url }}" class="btn btn-primary">
+              Ver <i class="fa fa-long-arrow-right"></i>
+            </a>
+          </p>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+
+    {% pagination_for page_obj %}
+{% endblock %}
