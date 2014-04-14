@@ -14,6 +14,7 @@ class Event(Page, RichText):
     class Meta:
         verbose_name = "Event"
         verbose_name_plural = "Events"
+        ordering = ("start",)
 
     def get_absolute_url(self):
         return reverse('event', kwargs={'slug': self.slug})
