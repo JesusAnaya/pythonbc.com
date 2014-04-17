@@ -303,6 +303,7 @@ OPTIONAL_APPS = (
     "django_extensions",
     "compressor",
     "gunicorn",
+    "raven.contrib.django.raven_compat",
     PACKAGE_NAME_FILEBROWSER,
     PACKAGE_NAME_GRAPPELLI,
 )
