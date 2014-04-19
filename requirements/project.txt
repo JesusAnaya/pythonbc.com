@@ -1,5 +1,5 @@
 Django==1.6.2
-Mezzanine==3.0.9
+Mezzanine==3.1.0
 south
 mysql-python
 django-embed-video
