@@ -263,6 +263,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.request",
     "django.core.context_processors.tz",
     "mezzanine.conf.context_processors.settings",
+    "mezzanine.pages.context_processors.page",
 )
 
 # List of middleware classes to use. Order is important; in the request phase,
@@ -303,6 +304,7 @@ OPTIONAL_APPS = (
     "django_extensions",
     "compressor",
     "gunicorn",
+    "django_jenkins",
     "raven.contrib.django.raven_compat",
     PACKAGE_NAME_FILEBROWSER,
     PACKAGE_NAME_GRAPPELLI,
