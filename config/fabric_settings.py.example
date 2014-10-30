@@ -1,0 +1,14 @@
+###################
+# DEPLOY SETTINGS #
+###################
+
+# These settings are used by the default fabfile.py provided.
+# Check fabfile.py for defaults.
+
+FABRIC = {
+    "SSH_USER": "your-username", # SSH username
+    "SSH_PASS":  "your-password", # SSH password (consider key-based authentication)
+    "SSH_PORT":  22,
+    "HOSTS": ["your-host-address.com"], # List of hosts to deploy to
+    "VIRTUALENV_HOME":  "/path/to/project/home", # Absolute remote path for virtualenvs at server
+}

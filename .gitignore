@@ -5,7 +5,9 @@
 .coverage
 live_settings.py
 local_settings.py
+fabric_settings.py
 .venv
 /build
 /media_root
 /static_root
+*.sublime*

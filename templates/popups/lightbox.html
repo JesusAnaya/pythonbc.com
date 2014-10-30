@@ -1,0 +1,20 @@
+{% load staticfiles %}
+
+{% block extra_js %}{{ block.super }}
+<script type="text/javascript" src="{% static 'js/ekko-lightbox.min.js' %}"></script>
+
+<script type="text/javascript">
+$(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+    event.preventDefault();
+    $(this).ekkoLightbox();
+});
+</script>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/ekko-lightbox.min.css' %}">
+{% endblock %}
+
+{% block popups %}
+
+{% endblock %}

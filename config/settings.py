@@ -238,6 +238,7 @@ MEZZANINE_APPS = (
 
 EXTERNAL_APPS = (
     "embed_video",
+    "mezzanine_api",
 )
 
 LOCAL_APPS = (
@@ -336,6 +337,17 @@ LOGGING = {
             'propagate': True,
         },
     }
+}
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'mezzanine_api.permissions.ReadOnly',
+    ),
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    ),
+    'PAGINATE_BY': 10
 }
 
 ##################

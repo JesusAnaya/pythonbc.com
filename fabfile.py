@@ -1,6 +1,6 @@
 from fabric.api import env, local, run, cd, sudo
 from fabric.contrib.files import upload_template
-from config.local_settings import FABRIC as fab
+from config.fabric_settings import FABRIC as fab
 
 env.hosts = fab.get('HOSTS')
 env.user = fab.get('SSH_USER')
