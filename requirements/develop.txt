@@ -1,7 +1,10 @@
 -r project.txt
 
-django-extensions
-werkzeug
-factory_boy
-fabric
-selenium
+django-extensions==1.4.6
+werkzeug==0.9.6
+factory_boy==2.4.1
+fabric==1.10.0
+selenium==2.44.0
+coverage==3.6
+django-coverage==1.2.4
+mock==1.0.1

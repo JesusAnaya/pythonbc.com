@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models.signals import pre_delete
+from django.dispatch.dispatcher import receiver
 from django.contrib.auth.models import AbstractUser
 
 
@@ -11,3 +13,7 @@ class User(AbstractUser):
     class Meta:
         db_table = 'auth_user'
 
+
+@receiver(pre_delete, sender=User)
+def user_pre_delete(sender, instance, **kwargs):
+    instance.photo.delete(False)
