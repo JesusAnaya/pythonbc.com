@@ -1,12 +1,12 @@
 from fabric.api import env, local, run, cd, sudo
 from fabric.contrib.files import upload_template
-from config.fabric_settings import FABRIC as fab
+import os
 
-env.hosts = fab.get('HOSTS')
-env.user = fab.get('SSH_USER')
-env.password = fab.get('SSH_PASS')
-env.port = fab.get('SSH_PORT')
-env.venv_home = fab.get('VIRTUALENV_HOME')
+env.hosts = [os.environ["FABIC_HOSTS"]]
+env.user = os.environ["FABIC_SSH_USER"]
+env.password = os.environ["FABIC_SSH_PASS"]
+env.port = 22
+env.venv_home = os.environ["FABIC_VIRTUALENV_HOME"]
 env.venv_path = "%s/venv" % env.venv_home
 env.pip = "%s/bin/pip" % env.venv_path
 env.manage = "%s/bin/python %s/manage.py" % (env.venv_path, env.venv_home)
