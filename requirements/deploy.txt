@@ -1,4 +1,4 @@
--r project.txt
+-r develop.txt
 
 gunicorn==19.1.1
 python-memcached==1.53

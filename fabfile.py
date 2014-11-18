@@ -59,7 +59,6 @@ def init_ssh():
 
 
 def deploy():
-    init_ssh()
     upload_templates()
 
     with cd(env.venv_home):
