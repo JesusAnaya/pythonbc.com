@@ -5,4 +5,4 @@ mysql-python==1.2.5
 django-embed-video==0.11
 djangorestframework==2.4.4
 django-filter==0.8
--e git+https://github.com/JesusAnaya/mezzanine-api.git#egg=mezzanine_api
+#-e git+https://github.com/JesusAnaya/mezzanine-api.git#egg=mezzanine_api

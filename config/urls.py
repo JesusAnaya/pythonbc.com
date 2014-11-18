@@ -21,7 +21,7 @@ urlpatterns = i18n_patterns("",
 urlpatterns += patterns('',
     url("^$", direct_to_template, {"template": "index.html"}, name="home"),
     url("^events/", include("events.urls")),
-    url("^api/v1/", include("mezzanine_api.urls")),
+#    url("^api/v1/", include("mezzanine_api.urls")),
     url("^", include("extra_pages.urls")),
     url("^", include("mezzanine.urls")),
 )
