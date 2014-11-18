@@ -21,7 +21,7 @@ templates = {
     },
     "local_settings": {
         "local_path": "deploy/live_settings.py",
-        "remote_path": "/home/anaya/pythonbc/config/local_settings.py",
+        "remote_path": "/home/anaya/pythonbc/config/settings_production.py",
     },
     "supervisor": {
         "local_path": "deploy/supervisor.conf",
@@ -60,9 +60,7 @@ def init_ssh():
 
 def deploy():
     upload_templates()
-
     with cd(env.venv_home):
-        run("git pull origin master")
         run("%s migrate --all" % env.manage)
         run("%s collectstatic --noinput" % env.manage)
     restart_services()
