@@ -5,7 +5,7 @@ from .settings import *
 DEBUG = False
 
 SECRET_KEY = os.environ["SECRET_KEY"]
-NEVERCACHE_KEY = os.environ["TWITTER_APP_KEY"]
+NEVERCACHE_KEY = os.environ["NEVERCACHE_KEY"]
 
 # Twitter app config
 TWITTER_APP_KEY = os.environ["TWITTER_APP_KEY"]
@@ -23,7 +23,7 @@ DATABASES = {
     }
 }
 
-CACHE_MIDDLEWARE_KEY_PREFIX = "pythonbc"
+CACHE_MIDDLEWARE_KEY_PREFIX = os.environ['CACHE_PREFIX']
 CACHE_MIDDLEWARE_SECONDS = 600
 
 CACHES = {

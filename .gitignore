@@ -10,3 +10,4 @@ fabric_settings.py
 /media_root
 /static_root
 *.sublime*
+env_settings.sh
