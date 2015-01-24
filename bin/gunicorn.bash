@@ -1,17 +1,15 @@
 #!/bin/bash
 set -e
 
-LOGFILE=/home/python/pythonbc/gunicorn.log
-LOGDIR=$(dirname $LOGFILE)
-NUM_WORKERS=2
+NUM_WORKERS=4
 
 # user/group to run as
-USER=python
-GROUP=python
 PORT=9900
-IP=0.0.0.0
+HOST=0.0.0.0
+APP_NAME=config.wsgi
+GUNICORN_PATH=/home/python/pythonbc/venv/bin/gunicorn
+
 cd /home/python/pythonbc
 source ./venv/bin/activate
 
-exec /home/python/pythonbc/venv/bin/gunicorn_django -b $IP:$PORT -w $NUM_WORKERS \
-  --user=$USER --group=$GROUP --log-level=debug --log-file=$LOGFILE 2>>$LOGFILE
+$GUNICORN_PATH $APP_NAME -b $HOST:$PORT -w $NUM_WORKERS --log-level=debug
