@@ -11,3 +11,4 @@ fabric_settings.py
 /static_root
 *.sublime*
 env_settings.sh
+fabric_runner.sh

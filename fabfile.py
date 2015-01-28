@@ -1,27 +1,25 @@
-from fabric.api import env, local, run, cd, sudo
+from fabric.api import env, run, cd, sudo
 from fabric.contrib.files import upload_template
 import os
 
 env.hosts = [os.environ["FABIC_HOSTS"]]
 env.user = os.environ["FABIC_SSH_USER"]
 env.password = os.environ["FABIC_SSH_PASS"]
-env.port = 22
-env.venv_home = os.environ["FABIC_VIRTUALENV_HOME"]
-env.venv_path = "%s/venv" % env.venv_home
-env.pip = "%s/bin/pip" % env.venv_path
-env.manage = "%s/bin/python %s/manage.py" % (env.venv_path, env.venv_home)
+env.port = int(os.environ["FABIC_PORT"])
+env.key_filename = os.environ['FABIC_LOCAL_KEY_FILENAME']
+
+project_home = os.environ["FABIC_VIRTUALENV_HOME"]
+venv_path = "%s/venv" % project_home
+pip = "%s/bin/pip" % venv_path
+manage = "%s/bin/python %s/manage.py" % (venv_path, project_home)
 
 
 # Templates definition
 templates = {
     "nginx": {
         "local_path": "deploy/nginx.conf",
-        "remote_path": "/etc/nginx/sites-enabled/pythonbc.co",
+        "remote_path": "/etc/nginx/sites-enabled/pythonbc.com",
         "reload_command": "service nginx reload",
-    },
-    "local_settings": {
-        "local_path": "deploy/live_settings.py",
-        "remote_path": "/home/anaya/pythonbc/config/settings_production.py",
     },
     "supervisor": {
         "local_path": "deploy/supervisor.conf",
@@ -30,7 +28,6 @@ templates = {
     },
 }
 
-#####
 
 def upload_templates():
     for name in templates:
@@ -52,41 +49,31 @@ def restart_services():
         if reload_command:
             sudo(reload_command)
 
-
-def init_ssh():
-    home_ssh = local("echo $HOME/.ssh/id_rsa", capture=True)
-    env.key_filename = home_ssh
-
-
 def deploy():
     upload_templates()
-    with cd(env.venv_home):
-        run("%s migrate --all" % env.manage)
-        run("%s collectstatic --noinput" % env.manage)
+    with cd(project_home):
+        run("%s migrate --all" % manage)
+        run("%s collectstatic --noinput" % manage)
     restart_services()
 
 
 def fulldeploy():
-    init_ssh()
     upload_templates()
 
-    with cd(env.venv_home):
+    with cd(project_home):
         run("git pull origin master")
-        run("%s install -r requirements/deploy.txt" % env.pip)
-        run("%s syncdb" % env.manage)
-        run("%s migrate --all" % env.manage)
-        run("%s collectstatic --noinput" % env.manage)
+        run("%s install -r requirements/deploy.txt" % pip)
+        run("%s syncdb" % manage)
+        run("%s migrate --all" % manage)
+        run("%s collectstatic --noinput" % manage)
     restart_services()
 
 
 def statics():
-    init_ssh()
     with cd(env.venv_home):
         run("%s collectstatic --noinput" % env.manage)
 
-
 def nginx():
-    init_ssh()
     template = templates.get('nginx')
     local_path = template.get('local_path')
     remote_path = template.get('remote_path')

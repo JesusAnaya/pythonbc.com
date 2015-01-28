@@ -1,3 +1,5 @@
 #!/bin/bash
 
-/home/python/pythonbc/venv/bin/gunicorn config.wsgi -c /home/python/pythonbc/bin/gunicorn.conf.py
+HOME_PATH=/home/python/pythonbc
+
+$HOME_PATH/venv/bin/gunicorn config.wsgi -c $HOME_PATH/bin/gunicorn.conf.py
