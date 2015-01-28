@@ -12,7 +12,7 @@ project_home = os.environ["FABIC_VIRTUALENV_HOME"]
 venv_path = "%s/venv" % project_home
 pip = "%s/bin/pip" % venv_path
 manage = "%s/bin/python %s/manage.py" % (venv_path, project_home)
-
+settings_prod = '--settings=config.settings_production'
 
 # Templates definition
 templates = {
@@ -52,8 +52,8 @@ def restart_services():
 def deploy():
     upload_templates()
     with cd(project_home):
-        run("%s migrate --all" % manage)
-        run("%s collectstatic --noinput" % manage)
+        run("%s migrate --all %s" % (manage, settings_prod))
+        run("%s collectstatic --noinput %s" % (manage, settings_prod))
     restart_services()
 
 
@@ -63,15 +63,15 @@ def fulldeploy():
     with cd(project_home):
         run("git pull origin master")
         run("%s install -r requirements/deploy.txt" % pip)
-        run("%s syncdb" % manage)
-        run("%s migrate --all" % manage)
-        run("%s collectstatic --noinput" % manage)
+        run("%s syncdb %s" % (manage, settings_prod))
+        run("%s migrate --all %s" % (manage, settings_prod))
+        run("%s collectstatic --noinput %s" % (manage, settings_prod))
     restart_services()
 
 
 def statics():
     with cd(env.venv_home):
-        run("%s collectstatic --noinput" % env.manage)
+        run("%s collectstatic --noinput %s" % (manage, settings_prod))
 
 def nginx():
     template = templates.get('nginx')
