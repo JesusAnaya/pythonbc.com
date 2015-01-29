@@ -31,7 +31,7 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 CACHES = {
     'default': {
         'BACKEND': 'redis_cache.RedisCache',
-        'LOCATION': '/var/run/redis/redis.sock',
+        'LOCATION': '127.0.0.1:6379',
         'OPTIONS': {
             'DB': 1,
             'PASSWORD': os.environ["REDIS_PASSWORD"]
