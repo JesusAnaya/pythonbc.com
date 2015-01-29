@@ -19,7 +19,7 @@ DATABASES = {
         "USER": os.environ["PYTHONBC_DB_USER"],
         "PASSWORD": os.environ["PYTHONBC_DB_PASS"],
         "HOST": "localhost",
-        "PORT": "3306",
+        "PORT": "5432",
     }
 }
 
