@@ -64,7 +64,7 @@ def fulldeploy():
         run("git pull origin master")
         run("%s install -r requirements/deploy.txt" % pip)
         run("%s syncdb %s" % (manage, settings_prod))
-        run("%s migrate --all %s" % (manage, settings_prod))
+        run("%s migrate %s" % (manage, settings_prod))
         run("%s collectstatic --noinput %s" % (manage, settings_prod))
     restart_services()
 

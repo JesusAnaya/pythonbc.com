@@ -32,6 +32,11 @@ CACHES = {
     'default': {
         'BACKEND': 'redis_cache.RedisCache',
         'LOCATION': '/var/run/redis/redis.sock',
+        'OPTIONS': {
+            'DB': 1,
+            'PASSWORD': os.environ["REDIS_PASSWORD"],
+            'PARSER_CLASS': 'redis.connection.HiredisParser'
+        },
     },
 }
 
