@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load staticfiles mezzanine_tags %}
 
 <script src="{% static 'js/jquery-2.0.0.min.js' %}"></script> <!-- Jquery Library Call -->
 <script src="{% static 'plugins/prettyphoto/js/prettyphoto.js' %}"></script> <!-- PrettyPhoto Plugin -->
@@ -12,7 +12,7 @@
 
 <script type="text/javascript">
   var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-17634639-83']);
+  _gaq.push(['_setAccount', '{{ settings.GOOGLE_ANALYTICS_ID }}']);
   _gaq.push(['_trackPageview']);
 
   (function() {
