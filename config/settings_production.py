@@ -14,7 +14,7 @@ TWITTER_APP_SECRET = os.environ["TWITTER_APP_SECRET"]
 # Data base config
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.mysql",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": os.environ["PYTHONBC_DB_NAME"],
         "USER": os.environ["PYTHONBC_DB_USER"],
         "PASSWORD": os.environ["PYTHONBC_DB_PASS"],
