@@ -24,7 +24,7 @@ templates = {
     "supervisor": {
         "local_path": "deploy/supervisor.conf",
         "remote_path": "/etc/supervisor/conf.d/pythonbc.conf",
-        "reload_command": "supervisorctl reload",
+        "reload_command": "if [ -f %s/pythonbc.pid ]; then \n kill -9 `cat %s/pythonbc.pid` \n rm %s/pythonbc.pid \n fi \n supervisorctl reload" % (project_home, project_home, project_home),
     },
 }
 

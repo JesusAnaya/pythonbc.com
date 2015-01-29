@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 import os
-from .settings import *
+from config.settings import *
 
 DEBUG = False
 
@@ -26,11 +26,13 @@ DATABASES = {
 CACHE_MIDDLEWARE_KEY_PREFIX = os.environ['CACHE_PREFIX']
 CACHE_MIDDLEWARE_SECONDS = 600
 
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+
 CACHES = {
-    "default": {
-        "BACKEND": "django.core.cache.backends.memcached.MemcachedCache",
-        "LOCATION": "127.0.0.1:11211",
-    }
+    'default': {
+        'BACKEND': 'redis_cache.RedisCache',
+        'LOCATION': '/var/run/redis/redis.sock',
+    },
 }
 
 RAVEN_CONFIG = {
@@ -71,22 +73,3 @@ LOGGING = {
         },
     }
 }
-
-
-####################
-# DYNAMIC SETTINGS #
-####################
-
-# set_dynamic_settings() will rewrite globals based on what has been
-# defined so far, in order to provide some better defaults where
-# applicable. We also allow this settings module to be imported
-# without Mezzanine installed, as the case may be when using the
-# fabfile, where setting the dynamic settings below isn't strictly
-# required.
-try:
-    from mezzanine.utils.conf import set_dynamic_settings
-except ImportError:
-    pass
-else:
-    set_dynamic_settings(globals())
-
