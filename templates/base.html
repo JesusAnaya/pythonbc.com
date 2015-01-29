@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load staticfiles pages_tags mezzanine_tags %}
 
 <!DOCTYPE HTML>
 <html class="no-js">
@@ -16,6 +16,11 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="format-detection" content="telephone=no">
     <link rel="icon" href="{% static 'ico/favicon.ico' %}">
+    
+    {% ifinstalled mezzanine.blog %}
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{% url "blog_post_feed" "rss" %}">
+    <link rel="alternate" type="application/atom+xml" title="Atom" href="{% url "blog_post_feed" "atom" %}">
+    {% endifinstalled %}
 
     <!-- CSS
       ================================================== -->
