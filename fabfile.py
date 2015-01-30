@@ -52,7 +52,7 @@ def restart_services():
 def deploy():
     upload_templates()
     with cd(project_home):
-        run("%s migrate --all %s" % (manage, settings_prod))
+        run("%s migrate %s" % (manage, settings_prod))
         run("%s collectstatic --noinput %s" % (manage, settings_prod))
     restart_services()
 
