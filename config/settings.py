@@ -261,6 +261,11 @@ DATABASES = {
     }
 }
 
+# Django embeded video
+EMBED_VIDEO_BACKENDS = (
+    'website.video_backends.YoutubeBackendHttps',
+)
+
 # List of processors used by RequestContext to populate the context.
 # Each one should be a callable that takes the request object as its
 # only parameter and returns a dictionary to add to the context.
