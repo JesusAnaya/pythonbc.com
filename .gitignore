@@ -12,3 +12,4 @@ fabric_settings.py
 *.sublime*
 env_settings.sh
 fabric_runner.sh
+*.conf
