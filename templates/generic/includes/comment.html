@@ -12,7 +12,7 @@
         </div>
         {# <a href="#" class="btn btn-primary btn-xs pull-right">Reply</a> #}
         <h5>{{ comment.user_name }} dijo</h5>
-        <span class="meta-data"><time>{{ comment.submit_date }}</time></span>
+        <span class="meta-data"><time datetime="{{ comment.submit_date }}">{{ comment.submit_date|date:"jS M, Y" }}</time></span>
         <p>{{ comment.comment|comment_filter }}</p>
       </div>
     </li>

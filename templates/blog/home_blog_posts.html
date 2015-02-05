@@ -14,7 +14,7 @@
           <div class="post-title">
             <h2><a href="{{ blog_post.get_absolute_url }}">{{ blog_post.title }}</a></h2>
             <span class="meta-data">
-              <i class="fa fa-calendar"></i> on <time>{{ blog_post.publish_date|date:"jS M, Y" }}</time>
+              <i class="fa fa-calendar"></i> on <time datetime="{{ blog_post.publish_date }}">{{ blog_post.publish_date|date:"jS M, Y" }}</time>
             </span>
           </div>
           <p>{{ blog_post.content|striptags|truncatewords:30 }}</p>

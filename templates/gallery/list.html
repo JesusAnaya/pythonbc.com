@@ -17,7 +17,7 @@
             <span>
                 <i class="fa fa-calendar"></i>
                 {% with gallery.publish_date as publish %}
-                <time>{% smonth publish.month %} {{ publish.day }}, {{ publish.year }}</time>
+                <time datetime="{{ publish }}">{% smonth publish.month %} {{ publish.day }}, {{ publish.year }}</time>
                 {% endwith %}
             </span>
 

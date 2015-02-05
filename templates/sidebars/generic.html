@@ -39,7 +39,7 @@
         <div class="widget-blog-content">
           <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
           <span class="meta-data">
-            <i class="fa fa-calendar"></i> <time>{{ post.publish_date|date:"jS M, Y" }}</time>
+            <i class="fa fa-calendar"></i> <time datetime="{{ post.publish_date }}">{{ post.publish_date|date:"jS M, Y" }}</time>
           </span>
         </div>
       </li>
