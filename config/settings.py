@@ -104,6 +104,10 @@ TIME_ZONE = "America/Los_Angeles"
 # If you set this to True, Django will use timezone-aware datetimes.
 USE_TZ = True
 
+# Date formats
+DATE_FORMAT = "Y-m-d"
+DATETIME_FORMAT = "Y-m-d H:i:s"
+
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = "en"

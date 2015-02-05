@@ -1,12 +1,7 @@
 {% extends 'pages/page.html' %}
 {% load staticfiles mezzanine_tags blog_tags keyword_tags sidebar_tags %}
 
-{% block meta_title %}bc.py - Blog{% endblock %}
-
-{% block meta_keywords %}{% metablock %}
-{% keywords_for blog_post as tags %}
-{% for tag in tags %}{% if not forloop.first %}, {% endif %}{{ tag }}{% endfor %}
-{% endmetablock %}{% endblock %}
+{% block meta_title %}Pythonbc blog{% endblock %}
 
 {% block meta_description %}{% metablock %}
 {{ blog_post.description }}

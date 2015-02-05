@@ -2,16 +2,10 @@
 {% load staticfiles mezzanine_tags comment_tags blog_tags sidebar_tags keyword_tags %}
 
 {% block page_title %}{% endblock %}
-
 {% block meta_title %}{{ blog_post.meta_title }}{% endblock %}
 
-{% block meta_keywords %}{% metablock %}
-{% keywords_for blog_post as tags %}
-{% for tag in tags %}{% if not forloop.first %}, {% endif %}{{ tag }}{% endfor %}
-{% endmetablock %}{% endblock %}
-
 {% block meta_description %}{% metablock %}
-{{ blog_post.description }}
+{{ blog_post.description|truncatechars:150 }}
 {% endmetablock %}{% endblock %}
 
 {% block extra_css %}{{ block.super }}
@@ -44,15 +38,14 @@ SyntaxHighlighter.all();
   <meta property="og:image" content="{{ HOME_URL }}{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 200 200 %}"/>
 
   <meta property="og:type" content="article"/>
-  <meta property="article:author" content="{{ blog_post.user.get_full_name|default:blog_post.user.username }}"/>
-
-  <meta name="author" content="{{ blog_post.user.get_full_name|default:blog_post.user.username }}">
+  <meta property="article:modified_time" content="{{ blog_post.updated}}"/>
+  {# <meta property="article:author" content=""/> #}
 {% endblock %}
 
 {% block content %}
 <header class="single-post-header clearfix">
   <div class="pull-right post-comments-count"> <a href="#comments"><i class="fa fa-comment"></i> {{ blog_post.comments_count }}</a> </div>
-  <h2 class="post-title">{{ blog_post.title }}</h2>
+  <h1 class="post-title">{{ blog_post.title }}</h1>
 </header>
 
 <article class="post-content">

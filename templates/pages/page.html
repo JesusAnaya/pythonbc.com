@@ -3,16 +3,9 @@
 
 {% block meta_title %}{{ page.title }}{% endblock %}
 
-{% block meta_keywords %}
-{% metablock %}
-{% keywords_for page as tags %}
-{% for tag in tags %}{% if not forloop.first %}, {% endif %}{{ tag }}{% endfor %}
-{% endmetablock %}
-{% endblock %}
-
 {% block meta_description %}
 {% metablock %}
-{{ page.description }}
+{{ page.description|truncatechars:150 }}
 {% endmetablock %}
 {% endblock %}
 
@@ -37,7 +30,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h1>{% block page_title %}{{ page.title }}{% endblock %}</h1>
+      {% block page_title %}<h1>{{ page.title }}</h1>{% endblock %}
     </div>
   </div>
 </div>

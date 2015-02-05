@@ -679,7 +679,7 @@ body.boxed .body .site-header, body.boxed .body .main-menu-wrapper{
 	-moz-box-shadow:0 2px 0 rgba(0,0,0,.1);
 	box-shadow:0 2px 0 rgba(0,0,0,.1);
 }
-.site-header h1.logo{
+.site-header .logo{
 	position:relative;
 	z-index:1300;
 	display: table;
