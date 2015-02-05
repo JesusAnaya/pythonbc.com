@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-md-4">
           <a href="{{ blog_post.get_absolute_url }}" class="media-box">
-            <img src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 201 154 %}" alt="" class="img-thumbnail">
+            <img src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 201 154 %}" alt="{{ blog_post.title }}" class="img-thumbnail">
           </a>
         </div>
         <div class="col-md-8">

@@ -11,10 +11,10 @@
 
             {% if post.video %}
             {% video post.video as post_video %}
-            <img src="{{ post_video.thumbnail }}" alt="" class="img-thumbnail">
+            <img src="{{ post_video.thumbnail }}" alt="{{ post.title }}" class="img-thumbnail">
             {% endvideo %}
             {% elif post.image %}
-            <img src="{{ MEDIA_URL }}{% thumbnail post.image 230 175 %}">
+            <img src="{{ MEDIA_URL }}{% thumbnail post.image 230 175 %}" alt="{{ post.title }}">
             {% endif %}
         </a>
     </div>

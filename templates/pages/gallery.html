@@ -33,7 +33,7 @@ $(document).ready(function() {
 {% for image in images %}
 <div class="col-xs-4 col-sm-3">
     <a class="thumbnail" rel="#image-{{ image.id }}" title="{{ image.description }}" href="{{ image.file.url }}">
-        <img class="img-responsive" src="{{ MEDIA_URL }}{% thumbnail image.file 131 75 %}">
+        <img class="img-responsive" src="{{ MEDIA_URL }}{% thumbnail image.file 131 75 %}" alt="{{ image.description }}">
     </a>
 </div>
 {% endfor %}

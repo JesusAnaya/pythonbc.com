@@ -56,15 +56,15 @@ SyntaxHighlighter.all();
     </span>
 
     <div class="featured-image">
-      <img src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 750 400 %}" alt="">
+      <img src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 750 400 %}" alt="{{ blog_post.title }}">
     </div>
 
     {# Social buttons #}
     <div>
-      <a href="https://facebook.com/sharer.php?u={{ HOME_URL }}{{ blog_post.get_absolute_url }}" rel="nofollow" target="_blank" class="btn btn-fb">Facebook</a>
-      <a href="https://twitter.com/intent/tweet?url={{ HOME_URL }}{{ blog_post.get_absolute_url }}&text={{ blog_post.title }}&via=PythonBC" rel="nofollow" target="_blank" class="btn btn-tw">Twitter</a>
-      <a href="https://plus.google.com/share?url={{ HOME_URL }}{{ blog_post.get_absolute_url }}" rel="nofollow" target="_blank" class="btn btn-gp">Google+</a>
-      <a href="https://www.linkedin.com/cws/share?url={{ HOME_URL }}{{ blog_post.get_absolute_url }}" rel="nofollow" target="_blank" class="btn btn-li">Linkedin</a>
+      <a href="https://facebook.com/sharer.php?u={{ HOME_URL|urlencode }}{{ blog_post.get_absolute_url|urlencode }}" rel="nofollow" target="_blank" class="btn btn-fb">Facebook</a>
+      <a href="https://twitter.com/intent/tweet?url={{ HOME_URL|urlencode }}{{ blog_post.get_absolute_url|urlencode }}&text={{ blog_post.title }}&via=PythonBC" rel="nofollow" target="_blank" class="btn btn-tw">Twitter</a>
+      <a href="https://plus.google.com/share?url={{ HOME_URL|urlencode }}{{ blog_post.get_absolute_url|urlencode }}" rel="nofollow" target="_blank" class="btn btn-gp">Google+</a>
+      <a href="https://www.linkedin.com/cws/share?url={{ HOME_URL|urlencode }}{{ blog_post.get_absolute_url|urlencode }}" rel="nofollow" target="_blank" class="btn btn-li">Linkedin</a>
     </div>
 
         {% block blog_post_list_post_content %}
@@ -73,7 +73,9 @@ SyntaxHighlighter.all();
 
         {% with blog_post.user as author %}
         <blockquote>
-          <a href="{{ author.google_plus }}?rel=author" rel="author" target="_blank" class="author"><img src="{{ MEDIA_URL }}{% thumbnail author.photo 60 60 %}"></a>
+          <a href="{{ author.google_plus }}?rel=author" rel="author" target="_blank" class="author">
+            <img src="{{ MEDIA_URL }}{% thumbnail author.photo 60 60 %}" alt="{{ author }}">
+          </a>
           <i>{{ author.get_full_name|default:author.username }}&nbsp;-&nbsp;{{ author.biography }}</i>
         </blockquote>
         {% endwith %}
