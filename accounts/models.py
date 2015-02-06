@@ -9,6 +9,8 @@ class User(AbstractUser):
                                     blank=True, null=True)
     biography = models.TextField(blank=True, null=True)
     google_plus = models.URLField(blank=True, null=True)
+    facebook = models.URLField(blank=True, null=True)
+    twitter = models.URLField(blank=True, null=True)
 
     class Meta:
         db_table = 'auth_user'

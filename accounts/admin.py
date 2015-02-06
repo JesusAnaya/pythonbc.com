@@ -15,7 +15,13 @@ class CustomUserAdmin(UserAdmin):
             'fields': ('first_name', 'last_name', 'email')
         }),
         (('Profile'), {
-            'fields': ('photo', 'biography', 'google_plus')
+            'fields': (
+                'photo',
+                'biography',
+                'google_plus',
+                'facebook',
+                'twitter'
+            )
         }),
         (('Permissions'), {
             'fields': ('is_active', 'is_staff', 'is_superuser',

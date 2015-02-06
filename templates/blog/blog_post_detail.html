@@ -39,7 +39,12 @@ SyntaxHighlighter.all();
 
   <meta property="og:type" content="article"/>
   <meta property="article:modified_time" content="{{ blog_post.updated}}"/>
-  {# <meta property="article:author" content=""/> #}
+
+  {% with blog_post.user as author %}
+    {% if author.facebook %}
+    <meta property="article:author" content="{{ author.facebook }}"/>
+    {% endif %}
+  {% endwith %}
 {% endblock %}
 
 {% block content %}

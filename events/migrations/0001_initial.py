@@ -1,71 +1,33 @@
 # -*- coding: utf-8 -*-
-from south.utils import datetime_utils as datetime
-from south.db import db
-from south.v2 import SchemaMigration
-from django.db import models
+from __future__ import unicode_literals
+
+from django.db import models, migrations
+import mezzanine.core.fields
 
 
-class Migration(SchemaMigration):
+class Migration(migrations.Migration):
 
-    def forwards(self, orm):
-        # Adding model 'Event'
-        db.create_table(u'events_event', (
-            (u'page_ptr', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['pages.Page'], unique=True, primary_key=True)),
-            ('content', self.gf('mezzanine.core.fields.RichTextField')()),
-            ('start', self.gf('django.db.models.fields.DateTimeField')()),
-            ('end', self.gf('django.db.models.fields.DateTimeField')()),
-            ('where', self.gf('django.db.models.fields.CharField')(max_length=255)),
-            ('gmap', self.gf('django.db.models.fields.TextField')()),
-        ))
-        db.send_create_signal(u'events', ['Event'])
+    dependencies = [
+        ('pages', '__first__'),
+    ]
 
-
-    def backwards(self, orm):
-        # Deleting model 'Event'
-        db.delete_table(u'events_event')
-
-
-    models = {
-        u'events.event': {
-            'Meta': {'ordering': "(u'_order',)", 'object_name': 'Event', '_ormbases': [u'pages.Page']},
-            'content': ('mezzanine.core.fields.RichTextField', [], {}),
-            'end': ('django.db.models.fields.DateTimeField', [], {}),
-            'gmap': ('django.db.models.fields.TextField', [], {}),
-            u'page_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['pages.Page']", 'unique': 'True', 'primary_key': 'True'}),
-            'start': ('django.db.models.fields.DateTimeField', [], {}),
-            'where': ('django.db.models.fields.CharField', [], {'max_length': '255'})
-        },
-        u'pages.page': {
-            'Meta': {'ordering': "(u'titles',)", 'object_name': 'Page'},
-            '_meta_title': ('django.db.models.fields.CharField', [], {'max_length': '500', 'null': 'True', 'blank': 'True'}),
-            '_order': ('django.db.models.fields.IntegerField', [], {'null': 'True'}),
-            'content_model': ('django.db.models.fields.CharField', [], {'max_length': '50', 'null': 'True'}),
-            'created': ('django.db.models.fields.DateTimeField', [], {'null': 'True'}),
-            'description': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
-            'expiry_date': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
-            'gen_description': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'in_menus': ('mezzanine.pages.fields.MenusField', [], {'default': '(1, 2, 3)', 'max_length': '100', 'null': 'True', 'blank': 'True'}),
-            'in_sitemap': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
-            u'keywords_string': ('django.db.models.fields.CharField', [], {'max_length': '500', 'blank': 'True'}),
-            'login_required': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'parent': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "u'children'", 'null': 'True', 'to': u"orm['pages.Page']"}),
-            'publish_date': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
-            'short_url': ('django.db.models.fields.URLField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
-            'site': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['sites.Site']"}),
-            'slug': ('django.db.models.fields.CharField', [], {'max_length': '2000', 'null': 'True', 'blank': 'True'}),
-            'status': ('django.db.models.fields.IntegerField', [], {'default': '2'}),
-            'title': ('django.db.models.fields.CharField', [], {'max_length': '500'}),
-            'titles': ('django.db.models.fields.CharField', [], {'max_length': '1000', 'null': 'True'}),
-            'updated': ('django.db.models.fields.DateTimeField', [], {'null': 'True'}),
-            u'use_right_panel': ('django.db.models.fields.BooleanField', [], {'default': 'True'})
-        },
-        u'sites.site': {
-            'Meta': {'ordering': "(u'domain',)", 'object_name': 'Site', 'db_table': "u'django_site'"},
-            'domain': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
-        }
-    }
-
-    complete_apps = ['events']
+    operations = [
+        migrations.CreateModel(
+            name='Event',
+            fields=[
+                ('page_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='pages.Page')),
+                ('content', mezzanine.core.fields.RichTextField(verbose_name='Content')),
+                ('start', models.DateTimeField()),
+                ('end', models.DateTimeField()),
+                ('where', models.CharField(max_length=255)),
+                ('gmap', models.TextField()),
+                ('external_url', models.URLField(null=True, blank=True)),
+            ],
+            options={
+                'ordering': ('start',),
+                'verbose_name': 'Event',
+                'verbose_name_plural': 'Events',
+            },
+            bases=('pages.page', models.Model),
+        ),
+    ]
