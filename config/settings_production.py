@@ -40,7 +40,7 @@ CACHES = {
 }
 
 RAVEN_CONFIG = {
-    'dsn': 'http://{0}@sentry.pythonbc.com/2'.format(os.environ['RAVEN_ID']),
+    'dsn': os.environ['RAVEN_URL']
 }
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTOCOL", "https")
