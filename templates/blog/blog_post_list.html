@@ -1,10 +1,10 @@
 {% extends 'pages/page.html' %}
 {% load staticfiles mezzanine_tags blog_tags keyword_tags sidebar_tags %}
 
-{% block meta_title %}Pythonbc blog{% endblock %}
+{% block meta_title %}{{ page.meta_title }}{% endblock %}
 
 {% block meta_description %}{% metablock %}
-{{ blog_post.description }}
+{{ page.description }}
 {% endmetablock %}{% endblock %}
 
 {% block content %}

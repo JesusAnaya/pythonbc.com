@@ -2,7 +2,7 @@
 {% load staticfiles mezzanine_tags comment_tags blog_tags sidebar_tags keyword_tags %}
 
 {% block page_title %}{% endblock %}
-{% block meta_title %}{{ blog_post.meta_title }}{% endblock %}
+{% block meta_title %}{{ blog_post.title }}{% endblock %}
 
 {% block meta_description %}{% metablock %}
 {{ blog_post.description|truncatechars:150 }}

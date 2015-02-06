@@ -2,7 +2,7 @@
 <nav class="navigation">
   <ul class="sf-menu">
     <li><a href="{{ HOME_URL }}">Inicio</a></li>
-    <li><a href="{% url 'page' 'about-us' %}">Acerca de</a>
+    <li><a href="{% url 'page' 'acerca-de-pythonbc' %}">Acerca de</a>
       <!-- <ul class="dropdown">
         <li><a href="{% url 'page' 'about-us' %}">Resumen</a></li>
         <li><a href="contact.html">Donde estamos</a></li>
@@ -47,7 +47,7 @@
       </ul>
     </li>
     -->
-    <li><a href="{% url 'page' 'events' %}">Eventos</a>
+    <li><a href="{% url 'page' 'eventos' %}">Eventos</a>
       <!--
       <ul class="dropdown">
         <li><a href="events.html">Events Listing</a></li>
@@ -58,13 +58,13 @@
       </ul>
       -->
     </li>
-    <li><a href="{% url 'talks' %}">Videos</a>
+    <li><a href="{% url 'page' 'charlas-y-talleres' %}">Videos</a>
       <ul class="dropdown">
-        <li><a href="{% url 'talks' %}">Charlas / Talleres</a></li>
-        <li><a href="{% url 'courses' %}">Cursos</a></li>
+        <li><a href="{% url 'page' 'charlas-y-talleres' %}">Charlas / Talleres</a></li>
+        <li><a href="{% url 'page' 'cursos' %}">Cursos</a></li>
       </ul>
     </li>
-    <li><a href="{% url 'page' 'gallery' %}">Galleria</a>
+    <li><a href="{% url 'page' 'galerias' %}">Galleria</a>
       <!--
       <ul class="dropdown">
         <li><a href="gallery-2cols-pagination.html">With Pagination</a>
