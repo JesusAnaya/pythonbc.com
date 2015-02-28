@@ -12,16 +12,20 @@
         <p>
           {{ FOOTER_MESSAGE }}
         </p>
+        <p>
+          <a href="https://www.comodo.com/" title="sitio seguro norton" rel="nofollow" target="_blank"><img src="{% static 'images/comodo.png' %}" title="sitio seguro norton" alt="sitio seguro norton" width="103" height="31" style="margin-right:18px;"></a>
+          <a href="https://lodyas.com/posicionamiento-de-paginas-web/?utm_source=pythonbc_com&amp;utm_medium=digital_partner&amp;utm_campaign=footer" target="_blank" title="Posicionamiento de paginas web"><img src="//lodyas.com/media/lodyas-125-45-dp.png" alt="LODYAS - Digital Partner" title="LODYAS - Digital Partner" style="margin-bottom:-9px;"></a>
+        </p>
       </div>
       <div class="col-md-4 col-sm-4 widget footer-widget">
-        <h4 class="footer-widget-title">Blogroll</h4>
+        <h4 class="footer-widget-title">Sitio</h4>
         <ul>
           <li><a href="{{ HOME_URL }}">Inicio</a></li>
-          <li><a href="{% url 'page' 'about-us' %}">Acerca de</a></li>
-          <li><a href="{% url 'page' 'events' %}">Eventos</a></li>
-          <li><a href="{% url 'page' 'talks' %}">Chalras / Tallers</a></li>
-          <li><a href="{% url 'page' 'courses' %}">Cursos</a></li>
-          <li><a href="{% url 'page' 'blog' %}">Nuestro Blog</a></li>
+          <li><a href="{% url 'page' 'acerca-de-pythonbc' %}">Acerca de</a></li>
+          <li><a href="{% url 'page' 'eventos' %}">Eventos</a></li>
+          <li><a href="{% url 'page' 'charlas-y-talleres' %}">Chalras / Tallers</a></li>
+          <li><a href="{% url 'page' 'cursos' %}">Cursos</a></li>
+          <li><a href="{% url 'blog_post_list' %}">Nuestro Blog</a></li>
         </ul>
       </div>
       <div class="col-md-4 col-sm-4 widget footer-widget">
