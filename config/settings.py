@@ -102,7 +102,7 @@ ALLOWED_HOSTS = ['*']
 TIME_ZONE = "America/Los_Angeles"
 
 # If you set this to True, Django will use timezone-aware datetimes.
-USE_TZ = True
+USE_TZ = False
 
 # Date formats
 DATE_FORMAT = "Y-m-d"
