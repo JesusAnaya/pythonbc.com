@@ -1,5 +1,5 @@
 {% extends 'pages/page.html' %}
-{% load mezzanine_tags spanish %}
+{% load mezzanine_tags %}
 
 {% block content %}
 <!-- Events Listing -->
@@ -16,12 +16,12 @@
       {% for event in events %}
       <li class="item event-item">
         <div class="event-date">
-          <span class="date">{{ event.start.day }}</span> <span class="month">{% smonth event.start.month %}</span>
+          <span class="date">{{ event.start|date:"d" }}</span> <span class="month">{{ event.start|date:"b" }}</span>
         </div>
         <div class="event-detail">
           <h4><a href="{{ event.get_absolute_url }}">{{ event.title }}</a></h4>
           <span class="event-dayntime meta-data">
-            {% sday event.start.weekday %} | {{ event.start|date:'f A' }}
+            {{ event.start|date:'l' }} | {{ event.start|date:'f A' }}
           </span>
         </div>
         <div class="to-event-url">

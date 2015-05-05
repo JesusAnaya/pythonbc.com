@@ -14,8 +14,7 @@
       {% with event.start as start %}
       <div class="col-md-3 col-sm-6 col-xs-6 notice-bar-event-title">
         <h5><a href="{{ event.get_absolute_url }}">{{ event.title }}</a></h5>
-
-        <span class="meta-data">{% sday start.weekday %} {{ start.day }} de {% smonth start.month %}, {{ start.year }}</span>
+        <span class="meta-data">{{ start|date:"l j \d\e F \d\e\l Y" }}</span>
       </div>
       <div id="counter" class="col-md-4 col-sm-6 col-xs-12 counter" data-date="{{ start|date:"Y/m/d H:i" }}">
         <div class="timer-col"> <span id="days"></span> <span class="timer-type">dias</span> </div>

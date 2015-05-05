@@ -102,7 +102,7 @@ ALLOWED_HOSTS = ['*']
 TIME_ZONE = "America/Los_Angeles"
 
 # If you set this to True, Django will use timezone-aware datetimes.
-USE_TZ = False
+USE_TZ = True
 
 # Date formats
 DATE_FORMAT = "Y-m-d"
@@ -110,12 +110,12 @@ DATETIME_FORMAT = "Y-m-d H:i:s"
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = "en"
+LANGUAGE_CODE = "es-MX"
 
 # Supported languages
 _ = lambda s: s
 LANGUAGES = (
-    ('en', _('English')),
+    ('es', _('Spanish')),
 )
 
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
@@ -130,8 +130,8 @@ SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
-USE_I18N = False
-
+USE_I18N = True
+USE_L10N = True
 # Tuple of IP addresses, as strings, that:
 #   * See debug comments, when DEBUG is true
 #   * Receive x-headers

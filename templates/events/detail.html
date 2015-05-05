@@ -1,5 +1,5 @@
 {% extends 'pages/page.html' %}
-{% load mezzanine_tags spanish staticfiles %}
+{% load mezzanine_tags staticfiles %}
 
 {% block extra_css %}{{ block.super }}
 <link rel="stylesheet" type="text/css" href="{% static 'css/richtextpage-contet.css' %}">
@@ -33,12 +33,10 @@
             <h3 class="panel-title">Event details</h3>
           </div>
           <div class="panel-body">
-            Start: {{ event.start }}
-            End: {{ event.end }}
             {% with event.end as end %}
             {% with event.start as start %}
             <ul class="info-table">
-              <li><i class="fa fa-calendar"></i> <strong>{% sday start.weekday %}</strong> | {{ start.day }} de {% smonth start.month %}, {{ start.year }}</li>
+              <li><i class="fa fa-calendar"></i> <strong>{{ start|date:"l" }}</strong> | {{ start|date:"d \d\e F \d\e\l Y" }}</li>
               <li><i class="fa fa-clock-o"></i> {{ start|date:"f A" }} - {{ end|date:"f A" }}</li>
               <li><i class="fa fa-map-marker"></i> {{ event.where }}</li>
             </ul>
