@@ -13,3 +13,4 @@ fabric_settings.py
 env_settings.sh
 fabric_runner.sh
 *.conf
+mezzanine_rest
