@@ -2545,3 +2545,17 @@ span.progress-bar-tooltip:after {
 @media all and (-webkit-min-device-pixel-ratio: 1.5) {
 
 }
+
+/* cunstom changes */
+
+#conversiones {
+    margin-left: auto!important;
+    margin-right: auto!important;
+    margin-top: 15px!important;
+    margin-bottom: 15px!important;
+    text-align: center!important;
+}
+
+#conversiones a {
+    text-decoration: none;
+}
